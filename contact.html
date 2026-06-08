@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Registry | The Culinary Atlas</title>
+  <meta name="description" content="Get in touch with the concierge registry of The Culinary Atlas. Contact details, maps, and hours for our 5 luxury dining salons in London.">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/home.css">
+  <style>
+    .contact-hero {
+      padding: 12rem 4rem 6rem 4rem;
+      text-align: center;
+      background-image: linear-gradient(180deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,1) 100%), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1920');
+      background-size: cover;
+      background-position: center;
+    }
+    .contact-section {
+      padding: 6rem 4rem 8rem 4rem;
+      background-color: #050505;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 6rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .contact-info-block {
+      text-align: left;
+    }
+    .contact-info-block h3 {
+      font-family: var(--font-logo);
+      font-size: 1.8rem;
+      color: var(--color-gold);
+      margin-bottom: 1.5rem;
+    }
+    .contact-info-block p {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+    .contact-details {
+      margin-top: 3rem;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+      padding-top: 2rem;
+    }
+    .contact-details-item {
+      margin-bottom: 1.5rem;
+    }
+    .contact-details-item h4 {
+      font-family: var(--font-logo);
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      color: var(--color-gold-light);
+      margin-bottom: 0.5rem;
+    }
+    .contact-details-item p {
+      margin-bottom: 0;
+    }
+    .contact-form-block {
+      background: #0A0A0A;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      padding: 4rem;
+    }
+    .form-group {
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+    .form-label {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .form-input {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      color: var(--color-light);
+      padding: 0.75rem 0;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      outline: none;
+      transition: var(--transition-fast);
+    }
+    .form-input:focus {
+      border-bottom-color: var(--color-gold);
+    }
+    .form-submit-btn {
+      width: 100%;
+      background: var(--color-gold);
+      color: var(--color-dark);
+      border: 1px solid var(--color-gold);
+      padding: 1rem;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    .form-submit-btn:hover {
+      background: transparent;
+      color: var(--color-gold);
+    }
+    @media (max-width: 991px) {
+      .contact-hero {
+        padding: 8rem 2rem 4rem 2rem;
+      }
+      .contact-section {
+        padding: 5rem 2rem;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+      }
+      .contact-form-block {
+        padding: 3rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Luxury Preloader -->
+  <div class="luxury-preloader">
+    <div class="preloader-circle-trace"></div>
+    <div class="preloader-logo">THE CULINARY ATLAS</div>
+  </div>
+
+  <!-- Global Header Navigation -->
+  <header class="global-header">
+    <a href="index.html" class="global-logo">
+      THE CULINARY ATLAS
+      <span>One Destination. Five Worlds.</span>
+    </a>
+    <nav class="global-nav-links">
+      <a href="about.html" class="global-nav-link">About</a>
+      <a href="index.html#destinations" class="global-nav-link">Cuisines</a>
+      <a href="contact.html" class="global-nav-link">Contact</a>
+      <a href="reservations.html" class="global-nav-cta">Reserve Table</a>
+    </nav>
+    <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Contact Hero -->
+  <section class="contact-hero">
+    <span class="section-tagline">THE CONCIERGE REGISTRY</span>
+    <h1 class="hero-title">Contact Concierge</h1>
+    <p class="hero-subtitle">Our global registry team stands ready to assist you in designing your next dining odyssey.</p>
+  </section>
+
+  <!-- Contact Details -->
+  <section class="contact-section reveal-on-scroll">
+    <div class="contact-grid">
+      <div class="contact-info-block reveal-on-scroll stagger-1">
+        <h3>Concierge Registry</h3>
+        <p>Whether you want to organize a multi-cuisine corporate banquet, arrange private dining in one of our salons, or inquire about booking requirements, reach out directly. We respond within twelve hours.</p>
+        
+        <div class="contact-details">
+          <div class="contact-details-item">
+            <h4>Location</h4>
+            <p>15 Belgrave Square, London, SW1X 8PS</p>
+          </div>
+          <div class="contact-details-item">
+            <h4>Registry Direct</h4>
+            <p>concierge@culinaryatlas.com</p>
+            <p>+44 20 7235 8000</p>
+          </div>
+          <div class="contact-details-item">
+            <h4>Hours of Operation</h4>
+            <p>Monday - Sunday: 12:00 PM - 11:30 PM</p>
+            <p>Tours of the 5 salons are available by appointment only.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-block glass-panel reveal-on-scroll stagger-2">
+        <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Message successfully logged. Our Concierge Registry will contact you shortly.'); this.reset();">
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-input" required placeholder="e.g. Sir Arthur Sterling">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-input" required placeholder="e.g. arthur@sterlingholdings.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Registry Inquiry</label>
+            <input type="text" class="form-input" required placeholder="e.g. Private Booking for Shanghai Salon">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Your Message</label>
+            <input type="text" class="form-input" required placeholder="Provide details here...">
+          </div>
+          <button type="submit" class="form-submit-btn">Transmit Registry Request</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer class="global-footer">
+    <div class="footer-grid">
+      <div class="footer-col brand-col">
+        <span class="footer-logo">THE CULINARY ATLAS</span>
+        <p class="footer-tagline">"One Destination. Five Culinary Worlds."</p>
+        <p class="footer-desc">An elite fine-dining collective combining authentic gastronomic histories from Italy, India, China, Japan, and Mexico.</p>
+      </div>
+      <div class="footer-col links-col">
+        <h4 class="footer-heading">Navigating The Worlds</h4>
+        <ul class="footer-links-list">
+          <li><a href="italian.html">The Tuscan Wine Cellar</a></li>
+          <li><a href="indian.html">The Royal Kitchens</a></li>
+          <li><a href="chinese.html">Modern Shanghai Fine Dining</a></li>
+          <li><a href="japanese.html">The Zen Omakase Counter</a></li>
+          <li><a href="mexican.html">Tulum Sunset Beach Lounge</a></li>
+        </ul>
+      </div>
+      <div class="footer-col contact-col">
+        <h4 class="footer-heading">Atlas Registry</h4>
+        <p>15 Belgrave Square, London, SW1X 8PS</p>
+        <p>Email: concierge@culinaryatlas.com</p>
+        <p>Reservations: +44 20 7235 8000</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 The Culinary Atlas. Crafted with pure devotion. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

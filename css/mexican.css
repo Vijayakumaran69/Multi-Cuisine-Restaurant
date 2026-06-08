@@ -1,0 +1,679 @@
+/* MEXICAN CUISINE - MODERN FIESTA SYSTEM */
+
+:root {
+  --mex-charcoal: #0F1212;
+  --mex-turquoise: #14C3C0;
+  --mex-turquoise-dark: #0E8E8C;
+  --mex-orange: #FF6647;
+  --mex-sand: #F5EAD4;
+  --mex-white: #FFFFFF;
+  
+  --font-mex-display: 'Syne', sans-serif;
+  --font-mex-sans: 'Montserrat', sans-serif;
+}
+
+body.cuisine-mexican {
+  background-color: var(--mex-charcoal);
+  color: var(--mex-white);
+  font-family: var(--font-mex-sans);
+}
+
+/* Mexican Navigation Header */
+.mexican-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2.5rem 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  border-bottom: 2px solid var(--mex-turquoise);
+  background-color: rgba(15, 18, 18, 0.85);
+  backdrop-filter: blur(12px);
+}
+
+.mexican-logo {
+  font-family: var(--font-mex-display);
+  font-weight: 800;
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+  color: var(--mex-turquoise);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.mexican-logo span {
+  font-family: var(--font-mex-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: var(--mex-orange);
+  margin-top: 0.25rem;
+  text-transform: uppercase;
+}
+
+.mexican-nav {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.mex-nav-link {
+  font-family: var(--font-mex-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.mex-nav-link:hover {
+  color: var(--mex-orange);
+  transform: translateY(-2px);
+}
+
+.mex-nav-cta {
+  font-family: var(--font-mex-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--mex-charcoal);
+  background-color: var(--mex-orange);
+  padding: 0.7rem 1.8rem;
+  text-decoration: none;
+  border-radius: 100px;
+  box-shadow: 0 4px 15px rgba(255, 102, 71, 0.3);
+  transition: var(--transition-smooth);
+}
+
+.mex-nav-cta:hover {
+  background-color: var(--mex-turquoise);
+  box-shadow: 0 4px 15px rgba(20, 195, 192, 0.3);
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* Mexican Hero Section */
+.mexican-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 6rem;
+  background-image: linear-gradient(rgba(15, 18, 18, 0.4), rgba(15, 18, 18, 0.85)), url('https://images.unsplash.com/photo-1471922694854-ff1b63b20054?q=80&w=1920');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.sunset-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at bottom right, rgba(255, 102, 71, 0.15) 0%, rgba(15, 18, 18, 0) 70%);
+  z-index: 1;
+}
+
+.hero-content-mex {
+  position: relative;
+  z-index: 2;
+  max-width: 750px;
+}
+
+.hero-fiesta-tag {
+  font-family: var(--font-mex-display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.35em;
+  color: var(--mex-turquoise);
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.mexican-hero .hero-headline {
+  font-family: var(--font-mex-display);
+  font-size: 4.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--mex-white);
+  margin-bottom: 2rem;
+}
+
+.mexican-hero .hero-subtext {
+  font-family: var(--font-mex-sans);
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 3.5rem;
+}
+
+.fiesta-scroll-btn {
+  display: inline-block;
+  font-family: var(--font-mex-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--mex-charcoal);
+  background-color: var(--mex-turquoise);
+  padding: 1.2rem 3rem;
+  border-radius: 100px;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 0 5px 20px rgba(20, 195, 192, 0.3);
+  transition: var(--transition-smooth);
+}
+
+.fiesta-scroll-btn:hover {
+  background-color: var(--mex-orange);
+  box-shadow: 0 5px 20px rgba(255, 102, 71, 0.4);
+  transform: translateY(-3px);
+}
+
+/* Mexican Containers & Badges */
+.fiesta-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.mex-badge {
+  font-family: var(--font-mex-display);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  color: var(--mex-orange);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.mex-badge.centered {
+  text-align: center;
+}
+
+.mexican-section-title {
+  font-family: var(--font-mex-display);
+  font-size: 3.2rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--mex-white);
+  text-transform: uppercase;
+  margin-bottom: 4rem;
+}
+
+.mexican-section-title.centered {
+  text-align: center;
+}
+
+.mex-center-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+/* Asymmetric Section Style */
+.mexican-heritage-section {
+  padding: 8rem 6rem;
+  background-color: var(--mex-charcoal);
+  clip-path: polygon(0 2%, 100% 0, 100% 98%, 0 100%);
+  background-image: linear-gradient(185deg, #121616 0%, #0c0e0e 100%);
+  border-top: 1px solid rgba(20, 195, 192, 0.1);
+  border-bottom: 1px solid rgba(20, 195, 192, 0.1);
+}
+
+.asymmetric-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.asym-text-card {
+  text-align: left;
+  background-color: rgba(255, 255, 255, 0.02);
+  border-left: 4px solid var(--mex-turquoise);
+  padding: 3.5rem;
+  border-radius: 4px;
+}
+
+.heritage-lead-mex {
+  font-family: var(--font-mex-display);
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-weight: 700;
+  color: var(--mex-sand);
+  margin-bottom: 2rem;
+}
+
+.heritage-body-mex {
+  font-family: var(--font-mex-sans);
+  font-size: 0.95rem;
+  line-height: 1.9;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.mex-heritage-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 15px -15px 0 var(--mex-orange);
+  transition: var(--transition-smooth);
+}
+
+.asymmetric-layout:hover .mex-heritage-img {
+  box-shadow: 20px -20px 0 var(--mex-turquoise);
+  transform: translate(-5px, 5px);
+}
+
+/* Taco Grid (Slanted Tilts) */
+.mexican-taco-section {
+  padding: 8rem 6rem;
+  background-color: var(--mex-charcoal);
+}
+
+.taco-asym-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  padding: 2rem 0;
+}
+
+.taco-card {
+  background-color: #121616;
+  border: 2px solid var(--mex-turquoise);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.card-tilt-left {
+  transform: rotate(-1.5deg);
+}
+
+.card-tilt-right {
+  transform: rotate(1.5deg);
+}
+
+.taco-card:hover {
+  transform: rotate(0) scale(1.05) translateY(-5px);
+  border-color: var(--mex-orange);
+  box-shadow: 0 20px 40px rgba(255, 102, 71, 0.15);
+}
+
+.taco-img-wrap {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.taco-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-slow);
+}
+
+.taco-card:hover .taco-img {
+  transform: scale(1.08);
+}
+
+.taco-card-body {
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.taco-title {
+  font-family: var(--font-mex-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--mex-white);
+  margin-bottom: 1rem;
+}
+
+.taco-desc {
+  font-family: var(--font-mex-sans);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 1.5rem;
+  height: 60px;
+  overflow: hidden;
+}
+
+.taco-price {
+  font-family: var(--font-mex-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--mex-turquoise);
+}
+
+/* Cocktail Section */
+.mexican-cocktail-section {
+  position: relative;
+  background-color: #121616;
+  border-top: 1px solid rgba(255, 102, 71, 0.1);
+  border-bottom: 1px solid rgba(255, 102, 71, 0.1);
+  overflow: hidden;
+}
+
+.cocktail-sunset-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at right, rgba(255, 102, 71, 0.08) 0%, rgba(15, 18, 18, 0) 80%);
+}
+
+.cocktail-wrapper {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  position: relative;
+  z-index: 2;
+}
+
+.cocktail-text-side {
+  padding: 8rem 6rem;
+  align-self: center;
+}
+
+.cocktail-p {
+  font-family: var(--font-mex-sans);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 3.5rem;
+}
+
+.cocktail-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.cocktail-item {
+  border-bottom: 1px dashed rgba(20, 195, 192, 0.2);
+  padding-bottom: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+}
+
+.cocktail-name {
+  font-family: var(--font-mex-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--mex-orange);
+}
+
+.cocktail-price {
+  font-family: var(--font-mex-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--mex-turquoise);
+  justify-self: end;
+}
+
+.cocktail-details {
+  grid-column: 1 / 3;
+  font-family: var(--font-mex-sans);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.5rem;
+}
+
+.cocktail-image-side {
+  width: 100%;
+  height: 100%;
+  min-height: 550px;
+  position: relative;
+}
+
+.cocktail-frame-asym {
+  width: 100%;
+  height: 100%;
+}
+
+.cocktail-img-src {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Events Timeline */
+.live-music-section {
+  padding: 8rem 6rem;
+  background-color: var(--mex-charcoal);
+}
+
+.events-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 800px;
+  margin: 2rem auto 0 auto;
+}
+
+.timeline-event {
+  display: flex;
+  gap: 4rem;
+  border-left: 3px solid var(--mex-orange);
+  padding: 1rem 0 1rem 3rem;
+  background-color: rgba(255, 255, 255, 0.01);
+  transition: var(--transition-fast);
+}
+
+.timeline-event:hover {
+  border-left-color: var(--mex-turquoise);
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.event-date {
+  font-family: var(--font-mex-display);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--mex-turquoise);
+  min-width: 150px;
+}
+
+.event-title {
+  font-family: var(--font-mex-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--mex-white);
+  margin-bottom: 0.5rem;
+}
+
+.event-desc {
+  font-family: var(--font-mex-sans);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Chef Section (Asymmetrical Slanted Grid) */
+.mexican-chef-section {
+  padding: 8rem 6rem;
+  background-color: #121616;
+}
+
+.chef-asym-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.slanted-image-frame {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  transform: rotate(-2deg);
+  box-shadow: -15px 15px 0 var(--mex-turquoise);
+}
+
+.chef-img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  display: block;
+}
+
+.chef-text-panel {
+  text-align: left;
+}
+
+.chef-p {
+  font-family: var(--font-mex-sans);
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+
+.chef-quote-mex {
+  font-family: var(--font-mex-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--mex-orange);
+  border-left: 4px solid var(--mex-turquoise);
+  padding-left: 2rem;
+}
+
+/* Booking Banner */
+.mexican-booking-banner {
+  padding: 10rem 6rem;
+  background-image: linear-gradient(rgba(15, 18, 18, 0.8), rgba(15, 18, 18, 0.85)), url('https://images.unsplash.com/photo-1473091534298-04dcbce3278c?q=80&w=1920');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.booking-fiesta-panel {
+  width: 100%;
+  max-width: 800px;
+  background: rgba(18, 22, 22, 0.9);
+  border: 2px solid var(--mex-turquoise);
+  padding: 5rem 4rem;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(20, 195, 192, 0.2);
+}
+
+.booking-title-mex {
+  font-family: var(--font-mex-display);
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--mex-orange);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.booking-text-mex {
+  font-family: var(--font-mex-sans);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 3.5rem;
+}
+
+.fiesta-booking-btn {
+  display: inline-block;
+  background-color: var(--mex-orange);
+  color: var(--mex-charcoal);
+  padding: 1.2rem 3.5rem;
+  border-radius: 100px;
+  font-family: var(--font-mex-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 5px 20px rgba(255, 102, 71, 0.4);
+  transition: var(--transition-smooth);
+}
+
+.fiesta-booking-btn:hover {
+  background-color: var(--mex-turquoise);
+  box-shadow: 0 5px 20px rgba(20, 195, 192, 0.4);
+  transform: scale(1.05);
+}
+
+/* Responsive Overrides */
+@media (max-width: 991px) {
+  .mexican-header {
+    padding: 1.5rem 2rem;
+  }
+  .mexican-nav {
+    display: none;
+  }
+  .mexican-hero {
+    padding: 6rem 2rem 2rem 2rem;
+  }
+  .mexican-hero .hero-headline {
+    font-size: 2.3rem;
+  }
+  .mexican-heritage-section,
+  .mexican-taco-section,
+  .mexican-cocktail-section,
+  .live-music-section,
+  .mexican-chef-section,
+  .mexican-booking-banner {
+    padding: 5rem 2rem;
+  }
+  .asymmetric-layout,
+  .taco-asym-grid,
+  .cocktail-wrapper,
+  .chef-asym-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+  .mex-heritage-img {
+    box-shadow: 10px -10px 0 var(--mex-orange);
+  }
+  .slanted-image-frame {
+    transform: rotate(0);
+    box-shadow: -10px 10px 0 var(--mex-turquoise);
+  }
+  .taco-card {
+    transform: rotate(0) !important;
+  }
+  .cocktail-text-side {
+    padding: 3rem 1.5rem;
+  }
+  .cocktail-image-side {
+    min-height: 300px;
+  }
+  .timeline-event {
+    flex-direction: column;
+    gap: 1rem;
+    padding-left: 1.5rem;
+  }
+  .event-date {
+    min-width: auto;
+  }
+  .booking-fiesta-panel {
+    padding: 3.5rem 1.5rem;
+  }
+  .booking-title-mex {
+    font-size: 1.8rem;
+  }
+}

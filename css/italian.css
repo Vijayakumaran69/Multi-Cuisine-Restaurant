@@ -1,0 +1,697 @@
+/* ITALIAN CUISINE - TUSCAN LUXURY STYLE */
+
+:root {
+  --italian-black: #0A0A0A;
+  --italian-gold: #C5A880;
+  --italian-wine: #5C1D24;
+  --italian-wine-bright: #8B1E2F;
+  --italian-cream: #F9F6F0;
+  
+  --font-italian-serif: 'Cormorant Garamond', serif;
+  --font-italian-sans: 'Montserrat', sans-serif;
+}
+
+body.cuisine-italian {
+  background-color: var(--italian-black);
+  color: var(--italian-cream);
+  font-family: var(--font-italian-sans);
+}
+
+/* Header Override */
+.italian-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2.5rem 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  border-bottom: 1px solid rgba(197, 168, 128, 0.15);
+}
+
+.italian-brand-logo {
+  font-family: var(--font-italian-serif);
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  color: var(--italian-cream);
+  text-decoration: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.italian-brand-logo span {
+  font-family: var(--font-italian-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  color: var(--italian-gold);
+  margin-top: 0.4rem;
+  text-transform: uppercase;
+}
+
+.header-left, .header-right {
+  display: flex;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.italian-nav-link {
+  font-family: var(--font-italian-sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(249, 246, 240, 0.7);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.italian-nav-link:hover {
+  color: var(--italian-gold);
+}
+
+.italian-reserve-btn {
+  font-family: var(--font-italian-sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--italian-gold);
+  text-decoration: none;
+  border: 1px solid var(--italian-gold);
+  padding: 0.6rem 1.8rem;
+  background: transparent;
+  transition: var(--transition-smooth);
+}
+
+.italian-reserve-btn:hover {
+  background: var(--italian-wine);
+  border-color: var(--italian-wine);
+  color: var(--italian-cream);
+}
+
+/* Hero Section */
+.italian-hero {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.6)), url('https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=1920');
+  background-size: cover;
+  background-position: center;
+  padding: 0 4rem;
+}
+
+.hero-tint {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(92, 29, 36, 0.15) 0%, rgba(10, 10, 10, 0.9) 90%);
+}
+
+.hero-frame {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 900px;
+  border: 1px solid rgba(197, 168, 128, 0.2);
+  padding: 4rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-decor-line {
+  width: 80px;
+  height: 1px;
+  background-color: var(--italian-gold);
+  margin: 1.5rem 0;
+}
+
+.hero-tag {
+  font-family: var(--font-italian-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: var(--italian-gold);
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-family: var(--font-italian-serif);
+  font-size: 3.8rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  line-height: 1.15;
+  margin-bottom: 2rem;
+  color: var(--italian-cream);
+}
+
+.hero-desc {
+  font-family: var(--font-italian-sans);
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  color: rgba(249, 246, 240, 0.7);
+  max-width: 600px;
+  margin-bottom: 2.5rem;
+}
+
+.hero-scroll-btn {
+  font-family: var(--font-italian-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: var(--italian-cream);
+  text-decoration: none;
+  border-bottom: 1px solid var(--italian-gold);
+  padding-bottom: 0.5rem;
+  transition: var(--transition-fast);
+}
+
+.hero-scroll-btn:hover {
+  color: var(--italian-gold);
+  letter-spacing: 0.3em;
+}
+
+/* Symmetric Containers */
+.symmetric-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.section-gold-label {
+  font-family: var(--font-italian-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  color: var(--italian-gold);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.italian-section-title {
+  font-family: var(--font-italian-serif);
+  font-size: 2.8rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--italian-cream);
+  text-transform: uppercase;
+}
+
+.italian-section-title.text-left {
+  text-align: left;
+}
+
+.decor-divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0 4rem 0;
+}
+
+.decor-divider.text-left {
+  justify-content: flex-start;
+  margin: 1.5rem 0 2.5rem 0;
+}
+
+.decor-divider::before,
+.decor-divider::after {
+  content: '';
+  width: 50px;
+  height: 1px;
+  background-color: rgba(197, 168, 128, 0.3);
+}
+
+.decor-divider .diamond {
+  width: 6px;
+  height: 6px;
+  background-color: var(--italian-gold);
+  transform: rotate(45deg);
+  margin: 0 10px;
+}
+
+/* Story of Tuscany Section */
+.italian-story-section {
+  padding: 8rem 4rem;
+  background-color: var(--italian-black);
+  border-bottom: 1px solid rgba(197, 168, 128, 0.1);
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.story-text-block {
+  text-align: left;
+}
+
+.story-lead {
+  font-family: var(--font-italian-serif);
+  font-size: 1.8rem;
+  line-height: 1.6;
+  font-style: italic;
+  color: var(--italian-gold);
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.story-body {
+  font-family: var(--font-italian-sans);
+  font-size: 0.9rem;
+  line-height: 1.9;
+  font-weight: 300;
+  color: rgba(249, 246, 240, 0.6);
+}
+
+.story-image-frame {
+  position: relative;
+  border: 1px solid rgba(197, 168, 128, 0.3);
+  padding: 1.5rem;
+}
+
+.story-image-frame::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 1px solid rgba(92, 29, 36, 0.3);
+  pointer-events: none;
+}
+
+.story-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Handmade Pasta Collection */
+.pasta-collection-section {
+  padding: 8rem 4rem;
+  background-color: #0d0d0d;
+  border-bottom: 1px solid rgba(197, 168, 128, 0.1);
+}
+
+.pasta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.pasta-card {
+  background: var(--italian-black);
+  border: 1px solid rgba(197, 168, 128, 0.15);
+  padding: 1.5rem;
+  text-align: center;
+  transition: var(--transition-smooth);
+}
+
+.pasta-card:hover {
+  border-color: var(--italian-gold);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+.pasta-img-holder {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(197, 168, 128, 0.1);
+}
+
+.pasta-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-slow);
+}
+
+.pasta-card:hover .pasta-img {
+  transform: scale(1.08);
+}
+
+.pasta-card-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pasta-item-title {
+  font-family: var(--font-italian-serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--italian-cream);
+  margin-bottom: 1rem;
+}
+
+.pasta-item-desc {
+  font-family: var(--font-italian-sans);
+  font-size: 0.8rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(249, 246, 240, 0.5);
+  margin-bottom: 1.5rem;
+  height: 60px;
+  overflow: hidden;
+}
+
+.pasta-item-price {
+  font-family: var(--font-italian-serif);
+  font-size: 1.4rem;
+  color: var(--italian-gold);
+  font-weight: 600;
+}
+
+/* Wine Cellar Section */
+.wine-cellar-section {
+  position: relative;
+  padding: 10rem 4rem;
+  background-image: linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.9)), url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1920');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wine-cellar-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+}
+
+.wine-tag {
+  font-family: var(--font-italian-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: var(--italian-gold);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.wine-title {
+  font-family: var(--font-italian-serif);
+  font-size: 3.2rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--italian-cream);
+  margin-bottom: 2rem;
+}
+
+.wine-text {
+  font-family: var(--font-italian-sans);
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.9;
+  color: rgba(249, 246, 240, 0.7);
+  margin-bottom: 4rem;
+}
+
+.wine-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.wine-bottle-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottle-name {
+  font-family: var(--font-italian-sans);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--italian-cream);
+  text-align: left;
+}
+
+.bottle-dash {
+  flex-grow: 1;
+  height: 1px;
+  border-bottom: 1px dotted rgba(197, 168, 128, 0.4);
+  margin: 0 1.5rem;
+}
+
+.bottle-price {
+  font-family: var(--font-italian-serif);
+  font-size: 1.25rem;
+  color: var(--italian-gold);
+}
+
+/* Chef Section */
+.italian-chef-section {
+  padding: 8rem 4rem;
+  background-color: var(--italian-black);
+  border-bottom: 1px solid rgba(197, 168, 128, 0.1);
+}
+
+.chef-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.chef-bio-block {
+  text-align: left;
+}
+
+.chef-bio-text {
+  font-family: var(--font-italian-sans);
+  font-size: 0.9rem;
+  line-height: 1.9;
+  font-weight: 300;
+  color: rgba(249, 246, 240, 0.6);
+  margin-bottom: 2rem;
+}
+
+.chef-quote-block {
+  font-family: var(--font-italian-serif);
+  font-size: 1.7rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--italian-gold);
+  border-left: 2px solid var(--italian-wine-bright);
+  padding-left: 1.5rem;
+  font-weight: 300;
+}
+
+.chef-photo-holder {
+  border: 1px solid rgba(197, 168, 128, 0.3);
+  padding: 1.5rem;
+  position: relative;
+}
+
+.chef-photo {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  display: block;
+  filter: contrast(105%);
+}
+
+/* Signature Masterpieces */
+.italian-signature-section {
+  padding: 8rem 4rem;
+  background-color: #0d0d0d;
+}
+
+.signature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+  margin-top: 2rem;
+}
+
+.sig-dish-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(197, 168, 128, 0.1);
+  background: var(--italian-black);
+}
+
+.sig-img-wrap {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.sig-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-slow);
+}
+
+.sig-dish-card:hover .sig-img {
+  transform: scale(1.05);
+}
+
+.sig-info {
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.sig-title {
+  font-family: var(--font-italian-serif);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--italian-cream);
+  margin-bottom: 1rem;
+}
+
+.sig-desc {
+  font-family: var(--font-italian-sans);
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(249, 246, 240, 0.5);
+}
+
+/* Reservations Footer */
+.italian-booking-section {
+  padding: 10rem 4rem;
+  background-color: var(--italian-black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.booking-border-box {
+  width: 100%;
+  max-width: 800px;
+  border: 1px solid var(--italian-gold);
+  padding: 5rem;
+  text-align: center;
+}
+
+.booking-title {
+  font-family: var(--font-italian-serif);
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--italian-cream);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.booking-text {
+  font-family: var(--font-italian-sans);
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(249, 246, 240, 0.6);
+  margin-bottom: 3rem;
+}
+
+.italian-cta-button {
+  display: inline-block;
+  background: var(--italian-wine);
+  color: var(--italian-cream);
+  border: 1px solid var(--italian-wine);
+  padding: 1rem 3rem;
+  font-family: var(--font-italian-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.italian-cta-button:hover {
+  background: transparent;
+  border-color: var(--italian-gold);
+  color: var(--italian-gold);
+}
+
+/* Responsive Overrides */
+@media (max-width: 991px) {
+  .italian-header {
+    padding: 1.5rem 2rem;
+  }
+  .header-left, .header-right {
+    display: none;
+  }
+  .italian-hero {
+    padding: 0 2rem;
+  }
+  .hero-frame {
+    padding: 2.5rem 1.5rem;
+  }
+  .hero-title {
+    font-size: 2.4rem;
+  }
+  .italian-story-section,
+  .pasta-collection-section,
+  .wine-cellar-section,
+  .italian-chef-section,
+  .italian-signature-section,
+  .italian-booking-section {
+    padding: 5rem 2rem;
+  }
+  .story-grid,
+  .chef-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .story-img,
+  .chef-photo {
+    height: 300px;
+  }
+  .pasta-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .wine-title {
+    font-size: 2.2rem;
+  }
+  .wine-bottle-item {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .bottle-dash {
+    display: none;
+  }
+  .signature-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .booking-border-box {
+    padding: 3rem 1.5rem;
+  }
+  .booking-title {
+    font-size: 1.8rem;
+  }
+}

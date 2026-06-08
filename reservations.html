@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unified Registry Reservations | The Culinary Atlas</title>
+  <meta name="description" content="Secure your dining reservation across any of our 5 luxury salons at The Culinary Atlas. The form adjusts in real-time to your culinary destination.">
+  
+  <!-- Import all cuisine stylesheets to allow dynamic UI styling -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/italian.css">
+  <link rel="stylesheet" href="css/indian.css">
+  <link rel="stylesheet" href="css/chinese.css">
+  <link rel="stylesheet" href="css/japanese.css">
+  <link rel="stylesheet" href="css/mexican.css">
+  
+  <style>
+    /* Reservation Page Core Settings */
+    .reservation-page-hero {
+      padding: 12rem 4rem 6rem 4rem;
+      text-align: center;
+      transition: var(--transition-smooth);
+    }
+    
+    /* Default styling when no specific cuisine is selected */
+    body.cuisine-home .reservation-page-hero {
+      background-image: linear-gradient(180deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,1) 100%), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1920');
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .reservation-container {
+      padding: 2rem 4rem 8rem 4rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: var(--transition-smooth);
+      background-color: transparent;
+    }
+    
+    /* Global Base Booking Card to be overridden */
+    .booking-portal-card {
+      width: 100%;
+      max-width: 800px;
+      padding: 4rem;
+      background: rgba(10, 10, 10, 0.9);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      transition: var(--transition-smooth);
+    }
+    
+    .selector-group {
+      margin-bottom: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+    
+    .selector-label {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    .cuisine-dropdown {
+      background: #0A0A0A;
+      border: 1px solid var(--color-gold);
+      color: var(--color-gold-light);
+      padding: 1rem 2rem;
+      font-family: var(--font-logo);
+      font-size: 1rem;
+      letter-spacing: 0.15em;
+      outline: none;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      transition: var(--transition-fast);
+    }
+    
+    .cuisine-dropdown:hover {
+      background: rgba(212, 175, 55, 0.05);
+    }
+    
+    .booking-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      margin-bottom: 3rem;
+    }
+    
+    .booking-field {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+    
+    .field-label {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+    }
+    
+    .field-input {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--color-light);
+      padding: 0.8rem 0;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      outline: none;
+      transition: var(--transition-fast);
+    }
+    
+    .field-input:focus {
+      border-bottom-color: var(--color-gold);
+    }
+    
+    /* Submit Button (Fallback/Global) */
+    .portal-submit-btn {
+      width: 100%;
+      background: var(--color-gold);
+      color: var(--color-dark);
+      border: 1px solid var(--color-gold);
+      padding: 1.2rem;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+    
+    .portal-submit-btn:hover {
+      background: transparent;
+      color: var(--color-gold);
+    }
+    
+    /* Body Background Adjustments */
+    body.cuisine-italian {
+      background-color: var(--italian-black) !important;
+    }
+    body.cuisine-indian {
+      background-color: var(--royal-ivory) !important;
+    }
+    body.cuisine-chinese {
+      background-color: var(--jade-black) !important;
+    }
+    body.cuisine-japanese {
+      background-color: var(--zen-bg) !important;
+    }
+    body.cuisine-mexican {
+      background-color: var(--mex-charcoal) !important;
+    }
+    
+    /* Font/Color Overrides for Reactive Fields */
+    body.cuisine-italian .field-label {
+      font-family: var(--font-italian-sans);
+      color: var(--italian-gold);
+    }
+    body.cuisine-italian .field-input {
+      border-bottom-color: rgba(197, 168, 128, 0.3);
+      color: var(--italian-cream);
+    }
+    body.cuisine-italian .field-input:focus {
+      border-bottom-color: var(--italian-wine-bright);
+    }
+    
+    body.cuisine-indian .field-label {
+      font-family: var(--font-royal-sans);
+      color: var(--royal-saffron);
+    }
+    body.cuisine-indian .field-input {
+      border-bottom-color: rgba(74, 18, 26, 0.2);
+      color: var(--royal-burgundy);
+    }
+    body.cuisine-indian .field-input:focus {
+      border-bottom-color: var(--royal-burgundy-light);
+    }
+    
+    body.cuisine-chinese .field-label {
+      font-family: var(--font-chinese-sans);
+      color: var(--jade-bright);
+    }
+    body.cuisine-chinese .field-input {
+      border-bottom-color: rgba(0, 168, 107, 0.3);
+      color: var(--jade-pearl);
+    }
+    body.cuisine-chinese .field-input:focus {
+      border-bottom-color: var(--jade-light);
+    }
+    
+    body.cuisine-japanese .field-label {
+      font-family: var(--font-zen-sans);
+      color: var(--zen-muted);
+    }
+    body.cuisine-japanese .field-input {
+      border-bottom-color: var(--zen-beige);
+      color: var(--zen-charcoal);
+    }
+    body.cuisine-japanese .field-input:focus {
+      border-bottom-color: var(--zen-charcoal);
+    }
+    
+    body.cuisine-mexican .field-label {
+      font-family: var(--font-mex-sans);
+      color: var(--mex-turquoise);
+    }
+    body.cuisine-mexican .field-input {
+      border-bottom-color: rgba(20, 195, 192, 0.3);
+      color: var(--mex-white);
+    }
+    body.cuisine-mexican .field-input:focus {
+      border-bottom-color: var(--mex-orange);
+    }
+    
+    @media (max-width: 991px) {
+      .reservation-page-hero {
+        padding: 8rem 2rem 4rem 2rem;
+      }
+      .reservation-container {
+        padding: 2rem 2rem 6rem 2rem;
+      }
+      .booking-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Luxury Preloader -->
+  <div class="luxury-preloader">
+    <div class="preloader-circle-trace"></div>
+    <div class="preloader-logo">THE CULINARY ATLAS</div>
+  </div>
+
+  <!-- Global Header Navigation -->
+  <header class="global-header">
+    <a href="index.html" class="global-logo" id="res-nav-logo">
+      THE CULINARY ATLAS
+      <span>One Destination. Five Worlds.</span>
+    </a>
+    <nav class="global-nav-links">
+      <a href="about.html" class="global-nav-link">About</a>
+      <a href="index.html#destinations" class="global-nav-link">Cuisines</a>
+      <a href="contact.html" class="global-nav-link">Contact</a>
+      <a href="reservations.html" class="global-nav-cta">Reserve Table</a>
+    </nav>
+    <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Dynamic Hero Section -->
+  <section class="reservation-page-hero" id="res-hero">
+    <span class="section-tagline" id="res-tagline">THE REGISTRY</span>
+    <h1 class="hero-title" id="res-title">Reserve Table</h1>
+    <p class="hero-subtitle" id="res-subtitle">Select your desired culinary world. Watch the registry interface transform to match the culture of your destination.</p>
+  </section>
+
+  <!-- Reservation Section -->
+  <section class="reservation-container reveal-on-scroll" id="res-section">
+    <!-- The Reactive Booking Card -->
+    <div id="booking-card" class="booking-portal-card glass-panel reveal-on-scroll stagger-1">
+      
+      <!-- Cuisine Selector Dropdown -->
+      <div class="selector-group">
+        <label class="selector-label" id="sel-label">Select Destination Salon</label>
+        <select class="cuisine-dropdown" id="cuisine-selector">
+          <option value="home">The Culinary Atlas (Global)</option>
+          <option value="italian">Il Cortile (Italian)</option>
+          <option value="indian">Maharaja (Indian)</option>
+          <option value="chinese">Jade Palace (Chinese)</option>
+          <option value="japanese">Kuro Hana (Japanese)</option>
+          <option value="mexican">Casa Sol (Mexican)</option>
+        </select>
+      </div>
+      
+      <!-- Reservation Form Fields -->
+      <form id="reservation-form" onsubmit="handleReservationSubmit(event)">
+        <div class="booking-grid">
+          <div class="booking-field">
+            <label class="field-label">Registry Name</label>
+            <input type="text" class="field-input" required id="form-name" placeholder="e.g. Eleanor Vance">
+          </div>
+          <div class="booking-field">
+            <label class="field-label">Email Address</label>
+            <input type="email" class="field-input" required id="form-email" placeholder="e.g. eleanor@vance.com">
+          </div>
+          <div class="booking-field">
+            <label class="field-label">Dining Date</label>
+            <input type="date" class="field-input" required id="form-date">
+          </div>
+          <div class="booking-field">
+            <label class="field-label">Guest Count</label>
+            <input type="number" class="field-input" required min="1" max="10" id="form-guests" placeholder="e.g. 4">
+          </div>
+        </div>
+        
+        <!-- Reactive Booking Button -->
+        <button type="submit" id="submit-btn" class="portal-submit-btn">Transmit Registry Request</button>
+      </form>
+      
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer class="global-footer">
+    <div class="footer-grid">
+      <div class="footer-col brand-col">
+        <span class="footer-logo">THE CULINARY ATLAS</span>
+        <p class="footer-tagline">"One Destination. Five Culinary Worlds."</p>
+        <p class="footer-desc">An elite fine-dining collective combining authentic gastronomic histories from Italy, India, China, Japan, and Mexico.</p>
+      </div>
+      <div class="footer-col links-col">
+        <h4 class="footer-heading">Navigating The Worlds</h4>
+        <ul class="footer-links-list">
+          <li><a href="italian.html">The Tuscan Wine Cellar</a></li>
+          <li><a href="indian.html">The Royal Kitchens</a></li>
+          <li><a href="chinese.html">Modern Shanghai Fine Dining</a></li>
+          <li><a href="japanese.html">The Zen Omakase Counter</a></li>
+          <li><a href="mexican.html">Tulum Sunset Beach Lounge</a></li>
+        </ul>
+      </div>
+      <div class="footer-col contact-col">
+        <h4 class="footer-heading">Atlas Registry</h4>
+        <p>15 Belgrave Square, London, SW1X 8PS</p>
+        <p>Email: concierge@culinaryatlas.com</p>
+        <p>Reservations: +44 20 7235 8000</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 The Culinary Atlas. Crafted with pure devotion. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Theme-Reactive Form Logic
+    const selector = document.getElementById('cuisine-selector');
+    const bookingCard = document.getElementById('booking-card');
+    const submitBtn = document.getElementById('submit-btn');
+    const resHero = document.getElementById('res-hero');
+    const resTagline = document.getElementById('res-tagline');
+    const resTitle = document.getElementById('res-title');
+    const resSubtitle = document.getElementById('res-subtitle');
+    const resNavLogo = document.getElementById('res-nav-logo');
+    const selLabel = document.getElementById('sel-label');
+
+    // Cuisine specific data
+    const themes = {
+      home: {
+        bodyClass: 'cuisine-home',
+        cardClass: 'booking-portal-card',
+        btnClass: 'portal-submit-btn',
+        tagline: 'THE REGISTRY',
+        title: 'Reserve Table',
+        subtitle: 'Select your desired culinary world. Watch the registry interface transform to match the culture of your destination.',
+        bg: "linear-gradient(180deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,1) 100%), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1920')"
+      },
+      italian: {
+        bodyClass: 'cuisine-italian',
+        cardClass: 'booking-border-box',
+        btnClass: 'italian-cta-button',
+        tagline: 'IL CORTILE',
+        title: 'Un Posto alla Tavola',
+        subtitle: 'Reserve your table tonight in the elegant Tuscan gardens of Il Cortile. Experience gastronomy in its purest form.',
+        bg: "linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.6)), url('https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=1920')"
+      },
+      indian: {
+        bodyClass: 'cuisine-indian',
+        cardClass: 'booking-arch-window',
+        btnClass: 'royal-booking-btn',
+        tagline: 'MAHARAJA',
+        title: 'Gather at the Royal Table',
+        subtitle: 'Book your imperial dining slot at Maharaja. Every meal is served as an offering to royalty.',
+        bg: "linear-gradient(rgba(74, 18, 26, 0.8), rgba(74, 18, 26, 0.85)), url('https://images.unsplash.com/photo-1596176530529-78163a4f7af2?q=80&w=1920')"
+      },
+      chinese: {
+        bodyClass: 'cuisine-chinese',
+        cardClass: 'booking-glass-panel',
+        btnClass: 'jade-booking-btn',
+        tagline: 'JADE PALACE',
+        title: 'Book an Imperial Salon',
+        subtitle: 'Immerse yourself in a gastronomic journey where modern elegance meets imperial history. Table reservations are highly recommended.',
+        bg: "linear-gradient(rgba(4, 9, 7, 0.8), rgba(4, 9, 7, 0.85)), url('https://images.unsplash.com/photo-1506501139174-099022df5260?q=80&w=1920')"
+      },
+      japanese: {
+        bodyClass: 'cuisine-japanese',
+        cardClass: 'booking-minimal-box',
+        btnClass: 'jp-booking-btn',
+        tagline: 'KURO HANA',
+        title: 'Reserve a Seat at the Counter',
+        subtitle: 'Only 10 seats are available nightly. We book up to three months in advance to ensure ingredient procurement.',
+        bg: "linear-gradient(rgba(250, 249, 246, 0.65), rgba(250, 249, 246, 0.8)), url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1920')"
+      },
+      mexican: {
+        bodyClass: 'cuisine-mexican',
+        cardClass: 'booking-fiesta-panel',
+        btnClass: 'fiesta-booking-btn',
+        tagline: 'CASA SOL',
+        title: 'Come Join the Fiesta!',
+        subtitle: 'Reserve your beach lounge table or indoor dining salon now. Unforgettable nights of flavor and music await you.',
+        bg: "linear-gradient(rgba(15, 18, 18, 0.8), rgba(15, 18, 18, 0.85)), url('https://images.unsplash.com/photo-1471922694854-ff1b63b20054?q=80&w=1920')"
+      }
+    };
+
+    function applyTheme(cuisineKey) {
+      const theme = themes[cuisineKey] || themes.home;
+      
+      // Update body classes (remove old ones first)
+      Object.keys(themes).forEach(key => {
+        document.body.classList.remove(themes[key].bodyClass);
+      });
+      document.body.classList.add(theme.bodyClass);
+
+      // Update card classes
+      bookingCard.className = 'glass-panel';
+      bookingCard.classList.add(theme.cardClass);
+
+      // Update button classes
+      submitBtn.className = '';
+      submitBtn.classList.add(theme.btnClass);
+
+      // Update texts
+      resTagline.textContent = theme.tagline;
+      resTitle.textContent = theme.title;
+      resSubtitle.textContent = theme.subtitle;
+
+      // Update hero backgrounds
+      resHero.style.backgroundImage = theme.bg;
+
+      // Header adjustments for specific pages to look completely authentic
+      if (cuisineKey === 'japanese') {
+        resNavLogo.style.color = 'var(--zen-charcoal)';
+        selLabel.style.color = 'var(--zen-muted)';
+        selector.style.borderColor = 'var(--zen-charcoal)';
+        selector.style.color = 'var(--zen-charcoal)';
+        selector.style.backgroundColor = 'var(--zen-bg)';
+      } else if (cuisineKey === 'indian') {
+        resNavLogo.style.color = 'var(--royal-burgundy)';
+        selLabel.style.color = 'var(--royal-saffron)';
+        selector.style.borderColor = 'var(--royal-gold)';
+        selector.style.color = 'var(--royal-burgundy)';
+        selector.style.backgroundColor = 'var(--royal-ivory-dark)';
+      } else if (cuisineKey === 'chinese') {
+        resNavLogo.style.color = 'var(--jade-pearl)';
+        selLabel.style.color = 'var(--jade-bright)';
+        selector.style.borderColor = 'var(--jade-bright)';
+        selector.style.color = 'var(--jade-pearl)';
+        selector.style.backgroundColor = 'var(--jade-deep)';
+      } else if (cuisineKey === 'mexican') {
+        resNavLogo.style.color = 'var(--mex-white)';
+        selLabel.style.color = 'var(--mex-turquoise)';
+        selector.style.borderColor = 'var(--mex-turquoise)';
+        selector.style.color = 'var(--mex-white)';
+        selector.style.backgroundColor = 'var(--mex-charcoal)';
+      } else if (cuisineKey === 'italian') {
+        resNavLogo.style.color = 'var(--italian-cream)';
+        selLabel.style.color = 'var(--italian-gold)';
+        selector.style.borderColor = 'var(--italian-gold)';
+        selector.style.color = 'var(--italian-cream)';
+        selector.style.backgroundColor = 'var(--italian-black)';
+      } else {
+        resNavLogo.style.color = '';
+        selLabel.style.color = '';
+        selector.style.borderColor = '';
+        selector.style.color = '';
+        selector.style.backgroundColor = '';
+      }
+    }
+
+    // Dropdown change listener
+    selector.addEventListener('change', (e) => {
+      applyTheme(e.target.value);
+    });
+
+    // Check query params on load
+    window.addEventListener('load', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const cuisineParam = urlParams.get('cuisine');
+      if (cuisineParam && themes[cuisineParam]) {
+        selector.value = cuisineParam;
+        applyTheme(cuisineParam);
+      } else {
+        applyTheme('home');
+      }
+    });
+
+    // Form Submission
+    function handleReservationSubmit(e) {
+      e.preventDefault();
+      
+      const cuisine = selector.value;
+      const name = document.getElementById('form-name').value;
+      const email = document.getElementById('form-email').value;
+      const date = document.getElementById('form-date').value;
+      const guests = document.getElementById('form-guests').value;
+
+      const reservationData = { cuisine, name, email, date, guests };
+      
+      // Store in localStorage
+      const reservations = JSON.parse(localStorage.getItem('atlas_reservations') || '[]');
+      reservations.push(reservationData);
+      localStorage.setItem('atlas_reservations', JSON.stringify(reservations));
+
+      // Show luxury ticket confirmation receipt!
+      const salonName = selector.options[selector.selectedIndex].text;
+      
+      alert(`REGISTRY CONFIRMED\n\nClient Name: ${name}\nSalon Chosen: ${salonName}\nDate: ${date}\nGuests: ${guests}\n\nYour registry code is ATLAS-${Math.floor(100000 + Math.random() * 900000)}. A confirmation ticket has been logged.`);
+      document.getElementById('reservation-form').reset();
+    }
+  </script>
+</body>
+</html>

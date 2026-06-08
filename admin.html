@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concierge Order Registry | The Culinary Atlas</title>
+  <meta name="description" content="Secure administrative panel to manage, confirm, and route luxury orders for The Culinary Atlas.">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <!-- Supabase CDN and Config -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+</head>
+<body class="cuisine-home admin-body">
+
+  <!-- Page Transition Overlay -->
+  <div class="page-transition-overlay">
+    <div class="transition-logo">THE CULINARY ATLAS</div>
+  </div>
+
+  <!-- Global Header Navigation -->
+  <header class="global-header">
+    <a href="index.html" class="global-logo">
+      THE CULINARY ATLAS
+      <span>Concierge Order Registry</span>
+    </a>
+    <nav class="global-nav-links">
+      <a href="index.html" class="global-nav-link">Main Site</a>
+      <a href="order.html" class="global-nav-link">Order Page</a>
+      <button id="admin-logout-btn" class="global-nav-cta" style="display: none;">Log Out</button>
+    </nav>
+  </header>
+
+  <!-- Passcode Shield Overlay -->
+  <div id="admin-login-overlay" class="login-overlay active">
+    <div class="login-box glass-panel">
+      <div class="login-crest">⚜</div>
+      <h2 class="login-title">Concierge Access</h2>
+      <p class="login-desc">Please enter the administrative passcode to access the luxury order registry.</p>
+      
+      <form id="passcode-form" class="login-form">
+        <div class="form-group">
+          <input type="password" id="passcode-input" placeholder="Passcode" required autocomplete="current-password">
+          <span class="error-msg" id="login-error">Invalid passcode. Access denied.</span>
+        </div>
+        <button type="submit" class="login-submit-btn">Unlock Registry</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Dashboard Container (Hidden until unlocked) -->
+  <main id="admin-panel-content" class="admin-container" style="display: none;">
+    <div class="admin-header">
+      <span class="admin-tagline">Registry Management</span>
+      <h1 class="admin-title">Customer Order Registry</h1>
+      <p class="admin-desc">Supervise, confirm, and update gastronomy orders placed through the Culinary Atlas online registry.</p>
+    </div>
+
+    <!-- Stats Summary Tiles -->
+    <div class="stats-grid">
+      <div class="stat-card glass-panel" data-filter="all">
+        <span class="stat-label">Total Registry Orders</span>
+        <strong id="stat-total" class="stat-number">0</strong>
+      </div>
+      <div class="stat-card glass-panel" data-filter="Pending Confirmation">
+        <span class="stat-label">Awaiting Confirmation</span>
+        <strong id="stat-pending" class="stat-number gold-glow">0</strong>
+      </div>
+      <div class="stat-card glass-panel" data-filter="Preparing">
+        <span class="stat-label">In Kitchen</span>
+        <strong id="stat-preparing" class="stat-number">0</strong>
+      </div>
+      <div class="stat-card glass-panel" data-filter="Out for Delivery">
+        <span class="stat-label">Out for Delivery</span>
+        <strong id="stat-delivering" class="stat-number">0</strong>
+      </div>
+    </div>
+
+    <!-- Search and Status Tabs Filters -->
+    <div class="controls-panel glass-panel">
+      <div class="search-bar-wrapper">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="order-search-input" placeholder="Search orders by customer name, phone, or ATLAS ID...">
+      </div>
+
+      <div class="status-filters-bar">
+        <button class="filter-tab active" data-status="all">All Orders</button>
+        <button class="filter-tab" data-status="Pending Confirmation">Pending</button>
+        <button class="filter-tab" data-status="Confirmed">Confirmed</button>
+        <button class="filter-tab" data-status="Preparing">Preparing</button>
+        <button class="filter-tab" data-status="Out for Delivery">Out for Delivery</button>
+        <button class="filter-tab" data-status="Delivered">Delivered</button>
+        <button class="filter-tab" data-status="Cancelled">Cancelled</button>
+      </div>
+    </div>
+
+    <!-- Orders Grid/Table -->
+    <div class="orders-table-wrapper glass-panel">
+      <table class="orders-table">
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Date & Time</th>
+            <th>Customer</th>
+            <th>Items</th>
+            <th>Grand Total</th>
+            <th>Status</th>
+            <th>Notification</th>
+            <th class="text-right">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="orders-table-body">
+          <!-- Dynamically Populated -->
+          <tr class="table-info-row">
+            <td colspan="8" class="text-center">Loading orders from registry database...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Detail Modal Pop-up -->
+  <div id="order-detail-modal" class="detail-modal-overlay">
+    <div class="detail-modal glass-panel">
+      <div class="modal-header">
+        <div class="modal-title-block">
+          <span class="modal-pre">Gastronomy Request</span>
+          <h2 id="modal-order-id" class="modal-order-title">ATLAS-1001</h2>
+        </div>
+        <button id="close-modal-btn" class="close-modal-btn" aria-label="Close details modal">&times;</button>
+      </div>
+
+      <div class="modal-body-grid">
+        <!-- Col 1: Customer Details -->
+        <div class="modal-col info-col">
+          <h3 class="col-section-title">Delivery Details</h3>
+          <div class="details-item-list">
+            <div class="detail-item">
+              <span class="label">Customer Name</span>
+              <strong id="modal-cust-name" class="value">Alexander Croft</strong>
+            </div>
+            <div class="detail-item">
+              <span class="label">Mobile Number</span>
+              <strong id="modal-cust-phone" class="value">+44 7911 123456</strong>
+            </div>
+            <div class="detail-item" id="modal-email-wrapper">
+              <span class="label">Email Contact</span>
+              <span id="modal-cust-email" class="value">alex@croft.com</span>
+            </div>
+            <div class="detail-item">
+              <span class="label">Delivery Address</span>
+              <span id="modal-cust-address" class="value">Flat 4B, Belgrave Manor</span>
+            </div>
+            <div class="detail-item">
+              <span class="label">City / Postal Code</span>
+              <span id="modal-cust-city-zip" class="value">London, SW1X 8PS</span>
+            </div>
+            <div class="detail-item" id="modal-notes-wrapper">
+              <span class="label">Concierge Notes</span>
+              <p id="modal-cust-notes" class="notes-content">"Leave at desk."</p>
+            </div>
+            <div class="detail-item">
+              <span class="label">Notification Status</span>
+              <span id="modal-notif-status" class="value">Pending</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 2: Ordered Items -->
+        <div class="modal-col items-col">
+          <h3 class="col-section-title">Registry Items</h3>
+          <div class="items-list-wrapper">
+            <table class="modal-items-table">
+              <thead>
+                <tr>
+                  <th>Cuisine</th>
+                  <th>Item Description</th>
+                  <th class="text-center">Qty</th>
+                  <th class="text-right">Price</th>
+                  <th class="text-right">Total</th>
+                </tr>
+              </thead>
+              <tbody id="modal-items-body">
+                <!-- Dynamic Items -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="modal-billing-summary">
+            <div class="modal-bill-line">
+              <span>Items Subtotal</span>
+              <span id="modal-subtotal">₹0</span>
+            </div>
+            <div class="modal-bill-line">
+              <span>Luxury Delivery Fee</span>
+              <span id="modal-delivery">₹150</span>
+            </div>
+            <div class="modal-bill-line grand">
+              <span>Grand Total</span>
+              <span id="modal-grand">₹0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Panel & Notification Copy Generator -->
+      <div class="modal-footer">
+        <div class="status-update-control">
+          <label for="order-status-select">Modify Order Status:</label>
+          <div class="status-select-wrapper">
+            <select id="order-status-select">
+              <option value="Pending Confirmation">Pending Confirmation</option>
+              <option value="Confirmed">Confirmed</option>
+              <option value="Preparing">Preparing</option>
+              <option value="Out for Delivery">Out for Delivery</option>
+              <option value="Delivered">Delivered</option>
+              <option value="Cancelled">Cancelled</option>
+            </select>
+          </div>
+          <button id="update-status-btn" class="status-save-btn">Update Status</button>
+        </div>
+
+        <!-- Notification copying preview block -->
+        <div class="notification-preview-block">
+          <div class="notif-header">
+            <span>Prepared Notification String (Copy Ready)</span>
+            <button id="copy-notif-btn" class="copy-btn">Copy Text</button>
+          </div>
+          <pre id="notif-text-preview" class="notif-preview-box">Loading formatted notification...</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

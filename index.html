@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Culinary Atlas | One Destination. Five Culinary Worlds.</title>
+  <meta name="description" content="Embark on an immersive luxury dining journey across Italy, India, China, Japan, and Mexico, curated under one roof at The Culinary Atlas.">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+  <!-- Luxury Preloader -->
+  <div class="luxury-preloader">
+    <div class="preloader-circle-trace"></div>
+    <div class="preloader-logo">THE CULINARY ATLAS</div>
+  </div>
+
+  <!-- Global Header Navigation -->
+  <header class="global-header">
+    <a href="index.html" class="global-logo" id="header-logo">
+      THE CULINARY ATLAS
+      <span>One Destination. Five Worlds.</span>
+    </a>
+    <nav class="global-nav-links">
+      <a href="about.html" class="global-nav-link">About</a>
+      <a href="index.html#destinations" class="global-nav-link">Cuisines</a>
+      <a href="contact.html" class="global-nav-link">Contact</a>
+      <a href="reservations.html" class="global-nav-cta">Reserve Table</a>
+    </nav>
+    <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Hero Section with World Map -->
+  <section class="hero-section">
+    <!-- Cinematic Ken Burns background -->
+    <div class="hero-cinematic-bg"></div>
+    <div class="hero-bg-overlay"></div>
+    
+    <!-- Floating fine dining decorative orbits -->
+    <div class="hero-decorative-orbits">
+      <svg class="decor-orbit-svg" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="400" cy="400" r="320" stroke="rgba(212, 175, 55, 0.05)" stroke-width="1.5" fill="none" />
+        <circle cx="400" cy="400" r="220" stroke="rgba(212, 175, 55, 0.03)" stroke-width="1" fill="none" stroke-dasharray="8 12" />
+        <path d="M 150 400 A 250 250 0 0 1 650 400" stroke="rgba(212, 175, 55, 0.04)" stroke-width="1" fill="none" />
+      </svg>
+    </div>
+
+    <div class="hero-content">
+      <h1 class="hero-title reveal-on-scroll">Explore Five<br><span class="highlight-gold-gradient">Culinary Worlds</span></h1>
+      <p class="hero-subtitle reveal-on-scroll stagger-1">Journey across Italy, India, China, Japan, and Mexico through unforgettable dining experiences crafted under one roof.</p>
+      
+      <!-- Twin Luxury CTAs -->
+      <div class="hero-ctas reveal-on-scroll stagger-2">
+        <a href="reservations.html" class="hero-btn-primary">
+          <span>Reserve a Table</span>
+        </a>
+        <a href="order.html" class="hero-btn-secondary">
+          <span>Order Online</span>
+        </a>
+      </div>
+
+      <a href="#destinations" class="editorial-scroll-indicator reveal-on-scroll stagger-3">
+        <span>SCROLL TO EXPLORE</span>
+        <div class="luxury-scroll-line">
+          <div class="scroll-dot"></div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Interactive Map Canvas (Treasure Hunt progressive discovery) -->
+    <div class="map-container-wrapper reveal-on-scroll stagger-4">
+      <div class="map-container">
+          <svg class="world-map" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+            <!-- Stylized Dotted World Map Base -->
+            <rect width="1000" height="500" fill="none" />
+            
+            <!-- Simplified Continents Outlines (Path Styling) -->
+            <path class="map-continent" d="M150,150 L200,120 L250,130 L300,100 L320,130 L350,150 L340,190 L300,220 L260,250 L270,300 L250,380 L230,420 L200,430 L220,380 L210,310 L160,280 L130,220 Z M450,100 L500,80 L550,90 L600,100 L650,80 L750,90 L850,100 L900,150 L880,220 L840,250 L780,260 L800,320 L780,380 L720,400 L680,360 L650,320 L600,340 L550,330 L520,300 L490,260 L450,230 L400,200 L420,150 Z" opacity="0.05" fill="#ffffff" />
+            
+            <!-- Connection Lines radiating from Atlas Center (London/Greenwich-ish representation) -->
+            <g class="connection-lines">
+              <!-- NY/London Center: 450, 140 -->
+              <path class="travel-line line-mexico" d="M450,140 Q325,180 200,220" />
+              <path class="travel-line line-italy" d="M450,140 Q470,145 490,150" />
+              <path class="travel-line line-india" d="M450,140 Q550,175 650,210" />
+              <path class="travel-line line-china" d="M450,140 Q600,160 740,180" />
+              <path class="travel-line line-japan" d="M450,140 Q620,162 790,185" />
+            </g>
+    
+            <!-- Interactive Cuisine Nodes -->
+            <!-- Mexico -->
+            <g class="map-node" data-target="mexican" transform="translate(200, 220)">
+              <circle class="pulse" r="15" />
+              <circle class="core" r="6" />
+              <text class="node-label" y="-15" x="-20">MEXICO</text>
+            </g>
+    
+            <!-- Atlas Hub -->
+            <g class="map-node hub" transform="translate(450, 140)">
+              <circle class="pulse-hub" r="10" />
+              <circle class="core-hub" r="4" />
+              <text class="node-label-hub" y="-15">ATLAS HUB</text>
+            </g>
+    
+            <!-- Italy -->
+            <g class="map-node" data-target="italian" transform="translate(490, 150)">
+              <circle class="pulse" r="15" />
+              <circle class="core" r="6" />
+              <text class="node-label" y="-15">ITALY</text>
+            </g>
+    
+            <!-- India -->
+            <g class="map-node" data-target="indian" transform="translate(650, 210)">
+              <circle class="pulse" r="15" />
+              <circle class="core" r="6" />
+              <text class="node-label" y="-15">INDIA</text>
+            </g>
+    
+            <!-- China -->
+            <g class="map-node" data-target="chinese" transform="translate(740, 180)">
+              <circle class="pulse" r="15" />
+              <circle class="core" r="6" />
+              <text class="node-label" y="-15">CHINA</text>
+            </g>
+    
+            <!-- Japan -->
+            <g class="map-node" data-target="japanese" transform="translate(790, 185)">
+              <circle class="pulse" r="15" />
+              <circle class="core" r="6" />
+              <text class="node-label" y="-15" x="15">JAPAN</text>
+            </g>
+          </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cuisine Selection Experience (Accordion Grid) -->
+  <section class="destinations-section" id="destinations">
+    <div class="section-header reveal-on-scroll">
+      <span class="section-tagline">THE DESTINATIONS</span>
+      <h2 class="section-title">Five Distinct Worlds</h2>
+    </div>
+    
+    <div class="accordion-grid">
+      <!-- Italian Card -->
+      <a href="italian.html" class="accordion-card active reveal-on-scroll stagger-1" style="background-image: url('https://images.unsplash.com/photo-1546549032-9571cd6b27df?q=80&w=800');">
+        <div class="card-overlay"></div>
+        <div class="card-content">
+          <span class="card-country">ITALY</span>
+          <h3 class="card-title">Tuscan Luxury</h3>
+          <div class="card-details">
+            <p><strong>Atmosphere:</strong> Florence, Tuscany, Amalfi Coast</p>
+            <p><strong>Signature Dishes:</strong> Black Truffle Gnocchi, Fiorentina Steak</p>
+            <p><strong>Design Style:</strong> Symmetrical, Michelin-star elegance, high-contrast serif</p>
+          </div>
+          <span class="card-explore-btn">Enter World</span>
+        </div>
+      </a>
+
+      <!-- Indian Card -->
+      <a href="indian.html" class="accordion-card reveal-on-scroll stagger-2" style="background-image: url('assets/images/dishes/biryani.webp');">
+        <div class="card-overlay"></div>
+        <div class="card-content">
+          <span class="card-country">INDIA</span>
+          <h3 class="card-title">Royal Heritage</h3>
+          <div class="card-details">
+            <p><strong>Atmosphere:</strong> Rajasthan Palaces, Mughal Architecture</p>
+            <p><strong>Signature Dishes:</strong> Rogan Josh, Royal Thali Experience</p>
+            <p><strong>Design Style:</strong> Rich storytelling, ornate patterns, saffron & ivory palette</p>
+          </div>
+          <span class="card-explore-btn">Enter World</span>
+        </div>
+      </a>
+
+      <!-- Chinese Card -->
+      <a href="chinese.html" class="accordion-card reveal-on-scroll stagger-3" style="background-image: url('https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=800');">
+        <div class="card-overlay"></div>
+        <div class="card-content">
+          <span class="card-country">CHINA</span>
+          <h3 class="card-title">Modern Oriental</h3>
+          <div class="card-details">
+            <p><strong>Atmosphere:</strong> Shanghai Skyline, Modern Canton</p>
+            <p><strong>Signature Dishes:</strong> Imperial Peking Duck, Jade Dumplings</p>
+            <p><strong>Design Style:</strong> Contemporary geometry, ink-brush effects, jade accents</p>
+          </div>
+          <span class="card-explore-btn">Enter World</span>
+        </div>
+      </a>
+
+      <!-- Japanese Card -->
+      <a href="japanese.html" class="accordion-card reveal-on-scroll stagger-4" style="background-image: url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=800');">
+        <div class="card-overlay"></div>
+        <div class="card-content">
+          <span class="card-country">JAPAN</span>
+          <h3 class="card-title">Zen Minimalism</h3>
+          <div class="card-details">
+            <p><strong>Atmosphere:</strong> Tokyo Omakase Counters, Wabi-Sabi gardens</p>
+            <p><strong>Signature Dishes:</strong> Premium Omakase, A5 Wagyu Beef</p>
+            <p><strong>Design Style:</strong> Soft tones, massive whitespace, precision typography</p>
+          </div>
+          <span class="card-explore-btn">Enter World</span>
+        </div>
+      </a>
+
+      <!-- Mexican Card -->
+      <a href="mexican.html" class="accordion-card reveal-on-scroll stagger-5" style="background-image: url('https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=800');">
+        <div class="card-overlay"></div>
+        <div class="card-content">
+          <span class="card-country">MEXICO</span>
+          <h3 class="card-title">Modern Fiesta</h3>
+          <div class="card-details">
+            <p><strong>Atmosphere:</strong> Tulum Beach Club, Sunset Rooftops</p>
+            <p><strong>Signature Dishes:</strong> Lobster Tacos, Smoked Mezcal Cocktails</p>
+            <p><strong>Design Style:</strong> Asymmetrical shapes, bold sunset colors, energetic motion</p>
+          </div>
+          <span class="card-explore-btn">Enter World</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Interactive Food Gallery Section -->
+  <section class="gallery-section reveal-on-scroll" id="gallery">
+    <div class="section-header">
+      <span class="section-tagline">CULINARY MASTERPIECES</span>
+      <h2 class="section-title">The Artistry Gallery</h2>
+      <p class="section-description">A curated visual odyssey highlighting signature dishes crafted by our master chefs across the 5 worlds.</p>
+    </div>
+
+    <!-- Gallery Filter Buttons -->
+    <div class="gallery-filters glass-panel">
+      <button class="filter-btn active" data-filter="all">All Salons</button>
+      <button class="filter-btn" data-filter="italian">Il Cortile</button>
+      <button class="filter-btn" data-filter="indian">Maharaja</button>
+      <button class="filter-btn" data-filter="chinese">Jade Palace</button>
+      <button class="filter-btn" data-filter="japanese">Kuro Hana</button>
+      <button class="filter-btn" data-filter="mexican">Casa Sol</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid">
+      <!-- Item 1: Italian -->
+      <div class="gallery-item reveal-on-scroll stagger-1" data-category="italian" data-title="Tagliatelle al Tartufo" data-desc="Freshly rolled egg pasta tossed in aged Parmigiano-Reggiano butter and shaved white truffles from Alba.">
+        <div class="gallery-img-container">
+          <img src="https://images.unsplash.com/photo-1645112411341-6c4fd023714a?q=80&w=600" alt="Tagliatelle al Tartufo" class="gallery-img">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-cuisine">Italian Salon</span>
+            <h4 class="gallery-item-name">Tagliatelle al Tartufo</h4>
+            <span class="gallery-view-btn">View Masterpiece</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2: Indian -->
+      <div class="gallery-item reveal-on-scroll stagger-2" data-category="indian" data-title="Gosht Rogan Josh" data-desc="Slow-braised lamb shanks cooked in a rich gravy of Kashmiri red chilies, mountain saffron, and cockscomb flower extract.">
+        <div class="gallery-img-container">
+          <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?q=80&w=600" alt="Gosht Rogan Josh" class="gallery-img">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-cuisine">Indian Salon</span>
+            <h4 class="gallery-item-name">Gosht Rogan Josh</h4>
+            <span class="gallery-view-btn">View Masterpiece</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3: Chinese -->
+      <div class="gallery-item reveal-on-scroll stagger-3" data-category="chinese" data-title="Imperial Peking Duck" data-desc="Crispy wood-fired duck skin served with steamed lotus buns, scallion curls, and a premium aged sweet bean sauce.">
+        <div class="gallery-img-container">
+          <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=600" alt="Imperial Peking Duck" class="gallery-img">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-cuisine">Chinese Salon</span>
+            <h4 class="gallery-item-name">Imperial Peking Duck</h4>
+            <span class="gallery-view-btn">View Masterpiece</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 4: Japanese -->
+      <div class="gallery-item reveal-on-scroll stagger-4" data-category="japanese" data-title="A5 Wagyu Tataki" data-desc="Seared A5 Wagyu beef slices served with direct-imported fresh wasabi root, micro shiso, and light sweet ponzu reduction.">
+        <div class="gallery-img-container">
+          <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=600" alt="A5 Wagyu Tataki" class="gallery-img">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-cuisine">Japanese Salon</span>
+            <h4 class="gallery-item-name">A5 Wagyu Tataki</h4>
+            <span class="gallery-view-btn">View Masterpiece</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 5: Mexican -->
+      <div class="gallery-item reveal-on-scroll stagger-1" data-category="mexican" data-title="Smoked Mezcal Lobster Taco" data-desc="Maine lobster tail chunks cooked in garlic mezcal butter, served on fresh blue corn tortillas with spicy avocado cream.">
+        <div class="gallery-img-container">
+          <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=600" alt="Mezcal Lobster Taco" class="gallery-img">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-cuisine">Mexican Salon</span>
+            <h4 class="gallery-item-name">Mezcal Lobster Taco</h4>
+            <span class="gallery-view-btn">View Masterpiece</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 6: Italian -->
+      <div class="gallery-item reveal-on-scroll stagger-2" data-category="italian" data-title="Fiorentina Steak" data-desc="40-day dry-aged Angus T-bone grilled over oakwood embers, finished with grey sea salt and rosemary-infused olive oil.">
+        <div class="gallery-img-container">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=600" alt="Bistecca alla Fiorentina" class="gallery-img">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-cuisine">Italian Salon</span>
+            <h4 class="gallery-item-name">Fiorentina Steak</h4>
+            <span class="gallery-view-btn">View Masterpiece</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 7: Indian -->
+      <div class="gallery-item reveal-on-scroll stagger-3" data-category="indian" data-title="Murgh Kesar Makhani" data-desc="Tandoor-roasted free-range chicken finished in a smooth tomato velvet gravy enriched with organic butter, cashews, and saffron.">
+        <div class="gallery-img-container">
+          <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=600" alt="Murgh Makhani" class="gallery-img">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-cuisine">Indian Salon</span>
+            <h4 class="gallery-item-name">Murgh Kesar Makhani</h4>
+            <span class="gallery-view-btn">View Masterpiece</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 8: Japanese -->
+      <div class="gallery-item reveal-on-scroll stagger-4" data-category="japanese" data-title="Kuro Hana Omakase Sushi" data-desc="A master chef selection of botan shrimp, fatty bluefin tuna, sea urchin, and golden eye snapper over premium seasoned rice.">
+        <div class="gallery-img-container">
+          <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?q=80&w=600" alt="Omakase Sushi Selection" class="gallery-img">
+          <div class="gallery-item-overlay">
+            <span class="gallery-item-cuisine">Japanese Salon</span>
+            <h4 class="gallery-item-name">Omakase Sushi</h4>
+            <span class="gallery-view-btn">View Masterpiece</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chef Collective Section -->
+  <section class="chef-collective-section reveal-on-scroll">
+    <div class="section-header reveal-on-scroll stagger-1">
+      <span class="section-tagline">MASTER CRAFTSMEN</span>
+      <h2 class="section-title">The Chef Collective</h2>
+    </div>
+
+    <div class="chefs-carousel-container reveal-on-scroll stagger-2">
+      <div class="chefs-track">
+        <!-- Chef 1 -->
+        <div class="chef-card active" data-cuisine="italian">
+          <div class="chef-image-container">
+            <img src="assets/images/chefs/chef-giovanni-rossi.webp" alt="Chef Giovanni Rossi" class="chef-img">
+          </div>
+          <div class="chef-info">
+            <span class="chef-cuisine">ITALIAN</span>
+            <h3 class="chef-name">Giovanni Rossi</h3>
+            <p class="chef-quote">"True Tuscan luxury is defined by the time and patience poured into making pasta by hand."</p>
+          </div>
+        </div>
+
+        <!-- Chef 2 -->
+        <div class="chef-card" data-cuisine="indian">
+          <div class="chef-image-container">
+            <img src="assets/images/chefs/chef-aarav-sharma.webp" alt="Chef Aarav Sharma" class="chef-img">
+          </div>
+          <div class="chef-info">
+            <span class="chef-cuisine">INDIAN</span>
+            <h3 class="chef-name">Aarav Sharma</h3>
+            <p class="chef-quote">"Spices are not heat; they are notes in a symphony that dates back to royal Mughal courts."</p>
+          </div>
+        </div>
+
+        <!-- Chef 3 -->
+        <div class="chef-card" data-cuisine="chinese">
+          <div class="chef-image-container">
+            <img src="assets/images/chefs/chef-meiling-zhao.webp" alt="Chef Meiling Zhao" class="chef-img">
+          </div>
+          <div class="chef-info">
+            <span class="chef-cuisine">CHINESE</span>
+            <h3 class="chef-name">Meiling Zhao</h3>
+            <p class="chef-quote">"Chinese cuisine is the balance of Yin and Yang, combining fire heat with jade precision."</p>
+          </div>
+        </div>
+
+        <!-- Chef 4 -->
+        <div class="chef-card" data-cuisine="japanese">
+          <div class="chef-image-container">
+            <img src="assets/images/chefs/chef-takashi-sato.webp" alt="Chef Takashi Sato" class="chef-img">
+          </div>
+          <div class="chef-info">
+            <span class="chef-cuisine">JAPANESE</span>
+            <h3 class="chef-name">Takashi Sato</h3>
+            <p class="chef-quote">"Omakase represents absolute trust. In that silence, every knife stroke tells our story."</p>
+          </div>
+        </div>
+
+        <!-- Chef 5 -->
+        <div class="chef-card" data-cuisine="mexican">
+          <div class="chef-image-container">
+            <img src="assets/images/chefs/chef-valeria-ruiz.webp" alt="Chef Valeria Ruiz" class="chef-img">
+          </div>
+          <div class="chef-info">
+            <span class="chef-cuisine">MEXICAN</span>
+            <h3 class="chef-name">Valeria Ruiz</h3>
+            <p class="chef-quote">"Mexican cooking is a living ritual. Vibrant, colorful, and designed for shared celebration."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-indicators">
+        <button class="indicator active" data-slide="0"></button>
+        <button class="indicator" data-slide="1"></button>
+        <button class="indicator" data-slide="2"></button>
+        <button class="indicator" data-slide="3"></button>
+        <button class="indicator" data-slide="4"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Patron Influence & Social Proof Section -->
+  <section class="social-proof-section reveal-on-scroll" id="reviews">
+    <div class="section-header">
+      <span class="section-tagline">PATRON TESTIMONIALS</span>
+      <h2 class="section-title">Global Acclaim & Influence</h2>
+    </div>
+
+    <div class="social-proof-grid">
+      <!-- Ratings & Counters Block -->
+      <div class="social-stats-block glass-panel reveal-on-scroll stagger-1">
+        <div class="rating-widget">
+          <div class="rating-number">4.9</div>
+          <div class="rating-stars">★★★★★</div>
+          <div class="rating-label">Average Patron Score</div>
+          <p class="rating-subtitle">Based on over 2,500+ verified Michelin-level guest reviews.</p>
+        </div>
+
+        <div class="upgraded-stats">
+          <div class="upgraded-stat-item">
+            <span class="stat-number" data-target="50000">0</span>
+            <span class="stat-label">Guests Served</span>
+          </div>
+          <div class="upgraded-stat-item">
+            <span class="stat-number" data-target="100">0</span>
+            <span class="stat-label">Signature Dishes</span>
+          </div>
+          <div class="upgraded-stat-item">
+            <span class="stat-number" data-target="25">0</span>
+            <span class="stat-label">Years of Excellence</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial Carousel Block -->
+      <div class="social-testimonials-block glass-panel reveal-on-scroll stagger-2">
+        <div class="testimonials-carousel">
+          <div class="testimonials-track">
+            <!-- Review 1 -->
+            <div class="testimonial-card active">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"A transcendent dining experience. Tasting the Zen Omakase followed by the Royal Thali in a single evening is gastronomy at its peak."</p>
+              <div class="testimonial-author">
+                <span class="author-name">Lord Sebastian Vane</span>
+                <span class="author-title">London Registry Patron</span>
+              </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Il Cortile's truffle pasta is absolute perfection, but it's the seamless cultural transition from one room to another that makes it 2026's best restaurant."</p>
+              <div class="testimonial-author">
+                <span class="author-name">Lady Beatrice Montgomery</span>
+                <span class="author-title">Gastronomy Critic</span>
+              </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"The attention to authenticity is striking. Maharaja's Rogan Josh tasted identical to the heritage banquets I experienced in Lucknow palace courts."</p>
+              <div class="testimonial-author">
+                <span class="author-name">Chef Marcus Vance</span>
+                <span class="author-title">Michelin Guide Reviewer</span>
+              </div>
+            </div>
+
+            <!-- Review 4 -->
+            <div class="testimonial-card">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">"Modern Oriental design coupled with wood-fired Peking Duck. The Culinary Atlas has redefined luxury hospitality globally."</p>
+              <div class="testimonial-author">
+                <span class="author-name">Sophia Cheng</span>
+                <span class="author-title">Global Culinary Guild</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="carousel-nav-arrows">
+            <button class="nav-arrow prev-arrow" aria-label="Previous review">&#8592;</button>
+            <button class="nav-arrow next-arrow" aria-label="Next review">&#8594;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Reservation Summary Banner -->
+  <section class="cta-reservation-banner reveal-on-scroll">
+    <div class="banner-content reveal-on-scroll stagger-1">
+      <h2 class="banner-title">Choose Your Destination</h2>
+      <p class="banner-text">Reserve your table in any of our 5 culinary worlds today. Experience exceptional Michelin-inspired dining tailored to your taste buds.</p>
+      <a href="reservations.html" class="banner-btn">Book An Experience</a>
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer class="global-footer">
+    <div class="footer-grid">
+      <div class="footer-col brand-col">
+        <span class="footer-logo">THE CULINARY ATLAS</span>
+        <p class="footer-tagline">"One Destination. Five Culinary Worlds."</p>
+        <p class="footer-desc">An elite fine-dining collective combining authentic gastronomic histories from Italy, India, China, Japan, and Mexico.</p>
+      </div>
+      <div class="footer-col links-col">
+        <h4 class="footer-heading">Navigating The Worlds</h4>
+        <ul class="footer-links-list">
+          <li><a href="italian.html">The Tuscan Wine Cellar</a></li>
+          <li><a href="indian.html">The Royal Kitchens</a></li>
+          <li><a href="chinese.html">Modern Shanghai Fine Dining</a></li>
+          <li><a href="japanese.html">The Zen Omakase Counter</a></li>
+          <li><a href="mexican.html">Tulum Sunset Beach Lounge</a></li>
+        </ul>
+      </div>
+      <div class="footer-col contact-col">
+        <h4 class="footer-heading">Atlas Registry</h4>
+        <p>15 Belgrave Square, London, SW1X 8PS</p>
+        <p>Email: concierge@culinaryatlas.com</p>
+        <p>Reservations: +44 20 7235 8000</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 The Culinary Atlas. Crafted with pure devotion. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

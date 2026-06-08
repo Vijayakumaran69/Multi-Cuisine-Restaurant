@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story | The Culinary Atlas</title>
+  <meta name="description" content="Discover the origins of The Culinary Atlas. Read how our founders gathered five of the world's greatest cuisines under one roof.">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/home.css">
+  <style>
+    .about-hero {
+      padding: 12rem 4rem 6rem 4rem;
+      text-align: center;
+      background-image: linear-gradient(180deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,1) 100%), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1920');
+      background-size: cover;
+      background-position: center;
+    }
+    .about-story {
+      padding: 8rem 4rem;
+      background-color: #050505;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .about-text h3 {
+      font-family: var(--font-logo);
+      font-size: 2rem;
+      color: var(--color-gold);
+      margin-bottom: 1.5rem;
+    }
+    .about-text p {
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 2rem;
+    }
+    .about-img-frame {
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      padding: 1.5rem;
+    }
+    .about-img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(100%);
+      transition: var(--transition-slow);
+    }
+    .about-img-frame:hover .about-img {
+      filter: grayscale(20%);
+    }
+    @media (max-width: 991px) {
+      .about-hero {
+        padding: 8rem 2rem 4rem 2rem;
+      }
+      .about-story {
+        padding: 5rem 2rem;
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      .about-img {
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Luxury Preloader -->
+  <div class="luxury-preloader">
+    <div class="preloader-circle-trace"></div>
+    <div class="preloader-logo">THE CULINARY ATLAS</div>
+  </div>
+
+  <!-- Global Header Navigation -->
+  <header class="global-header">
+    <a href="index.html" class="global-logo">
+      THE CULINARY ATLAS
+      <span>One Destination. Five Worlds.</span>
+    </a>
+    <nav class="global-nav-links">
+      <a href="about.html" class="global-nav-link">About</a>
+      <a href="index.html#destinations" class="global-nav-link">Cuisines</a>
+      <a href="contact.html" class="global-nav-link">Contact</a>
+      <a href="reservations.html" class="global-nav-cta">Reserve Table</a>
+    </nav>
+    <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- About Hero -->
+  <section class="about-hero reveal-on-scroll">
+    <span class="section-tagline">THE ODYSSEY</span>
+    <h1 class="hero-title">Our Sacred Mission</h1>
+    <p class="hero-subtitle">Gathering the world's master culinary artisans to create a single, unified sanctuary of sensory discovery.</p>
+  </section>
+
+  <!-- Story Details -->
+  <section class="about-story reveal-on-scroll">
+    <div class="about-grid">
+      <div class="about-text reveal-on-scroll stagger-1">
+        <h3>Five Worlds, One Roof</h3>
+        <p>The Culinary Atlas was born in 2021 from a simple yet radical question: Why should a gourmet traveler have to choose between a rustic Tuscan courtyard, a royal Rajasthan palace, a sleek Shanghai lounge, a minimal Tokyo Omakase counter, or a vibrant Tulum beach house?</p>
+        <p>We spent four years traveling, recruiting five legendary chefs from their respective native lands, and constructing five distinct architectural dining salons within our London headquarters. We did not build a food court. We built five distinct portals—each with its own air conditioning scent, acoustics, lighting grids, plateware, and cultural pacing.</p>
+        <p>We invite you to step through our doors. Pick a world. Live its history. Taste its soul.</p>
+      </div>
+      <div class="about-img-frame reveal-on-scroll stagger-2">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=800" alt="Culinary Atlas Founders" class="about-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Footer -->
+  <footer class="global-footer">
+    <div class="footer-grid">
+      <div class="footer-col brand-col">
+        <span class="footer-logo">THE CULINARY ATLAS</span>
+        <p class="footer-tagline">"One Destination. Five Culinary Worlds."</p>
+        <p class="footer-desc">An elite fine-dining collective combining authentic gastronomic histories from Italy, India, China, Japan, and Mexico.</p>
+      </div>
+      <div class="footer-col links-col">
+        <h4 class="footer-heading">Navigating The Worlds</h4>
+        <ul class="footer-links-list">
+          <li><a href="italian.html">The Tuscan Wine Cellar</a></li>
+          <li><a href="indian.html">The Royal Kitchens</a></li>
+          <li><a href="chinese.html">Modern Shanghai Fine Dining</a></li>
+          <li><a href="japanese.html">The Zen Omakase Counter</a></li>
+          <li><a href="mexican.html">Tulum Sunset Beach Lounge</a></li>
+        </ul>
+      </div>
+      <div class="footer-col contact-col">
+        <h4 class="footer-heading">Atlas Registry</h4>
+        <p>15 Belgrave Square, London, SW1X 8PS</p>
+        <p>Email: concierge@culinaryatlas.com</p>
+        <p>Reservations: +44 20 7235 8000</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 The Culinary Atlas. Crafted with pure devotion. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

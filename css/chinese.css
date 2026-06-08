@@ -1,0 +1,776 @@
+/* CHINESE CUISINE - MODERN ORIENTAL LUXURY SYSTEM */
+
+:root {
+  --jade-deep: #061510;
+  --jade-medium: #0D261E;
+  --jade-bright: #00A86B;
+  --jade-light: #52D8A7;
+  --jade-black: #040907;
+  --jade-pearl: #F6FCFA;
+  
+  --font-chinese-serif: 'Cormorant Garamond', serif;
+  --font-chinese-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+body.cuisine-chinese {
+  background-color: var(--jade-black);
+  color: var(--jade-pearl);
+  font-family: var(--font-chinese-sans);
+  padding-left: 60px; /* Leave space for the vertical sidebar! */
+}
+
+/* Vertical Left Sidebar Decor */
+.vertical-sidebar-decor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 60px;
+  height: 100vh;
+  background-color: var(--jade-deep);
+  border-right: 1px solid rgba(0, 168, 107, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+.vertical-sidebar-decor span {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: var(--font-chinese-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  color: var(--jade-bright);
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0.8;
+}
+
+/* Navigation Header Override */
+.chinese-header {
+  position: absolute;
+  top: 0;
+  left: 60px;
+  right: 0;
+  padding: 2.5rem 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  border-bottom: 1px solid rgba(0, 168, 107, 0.15);
+  background-color: rgba(4, 9, 7, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+.chinese-logo-link {
+  font-family: var(--font-chinese-serif);
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: var(--jade-pearl);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.chinese-logo-link span {
+  font-family: var(--font-chinese-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  color: var(--jade-bright);
+  margin-top: 0.25rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.chinese-nav {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.chinese-nav-item {
+  font-family: var(--font-chinese-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(246, 252, 250, 0.7);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.chinese-nav-item:hover {
+  color: var(--jade-bright);
+}
+
+.chinese-cta-btn {
+  font-family: var(--font-chinese-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--jade-pearl);
+  text-decoration: none;
+  background-color: rgba(0, 168, 107, 0.1);
+  border: 1px solid var(--jade-bright);
+  padding: 0.6rem 1.6rem;
+  border-radius: 2px;
+  transition: var(--transition-smooth);
+}
+
+.chinese-cta-btn:hover {
+  background-color: var(--jade-bright);
+  color: var(--jade-black);
+}
+
+/* Chinese Hero Section */
+.chinese-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 5rem;
+  background-image: linear-gradient(rgba(4, 9, 7, 0.7), rgba(4, 9, 7, 0.9)), url('https://images.unsplash.com/photo-1543007630-9710e4a00a20?q=80&w=1920');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-jade-glow {
+  position: absolute;
+  top: 30%;
+  right: 15%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(0, 168, 107, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+  filter: blur(40px);
+  z-index: 1;
+}
+
+.hero-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.hero-chinese-label {
+  font-family: var(--font-chinese-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  color: var(--jade-bright);
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.chinese-hero .hero-title {
+  font-family: var(--font-chinese-serif);
+  font-size: 4rem;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  color: var(--jade-pearl);
+  margin-bottom: 2rem;
+}
+
+.chinese-hero .hero-subtitle {
+  font-family: var(--font-chinese-sans);
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(246, 252, 250, 0.75);
+  margin-bottom: 3rem;
+  max-width: 550px;
+}
+
+.chinese-explore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  text-decoration: none;
+  font-family: var(--font-chinese-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--jade-pearl);
+  transition: var(--transition-fast);
+}
+
+.line-btn-arrow {
+  width: 60px;
+  height: 1px;
+  background-color: var(--jade-bright);
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.line-btn-arrow::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -3px;
+  width: 7px;
+  height: 7px;
+  border-right: 1px solid var(--jade-bright);
+  border-bottom: 1px solid var(--jade-bright);
+  transform: rotate(-45deg);
+}
+
+.chinese-explore-btn:hover .line-btn-arrow {
+  width: 90px;
+  background-color: var(--jade-light);
+}
+
+.chinese-explore-btn:hover .line-btn-arrow::after {
+  border-color: var(--jade-light);
+}
+
+.chinese-explore-btn:hover {
+  color: var(--jade-light);
+}
+
+/* Chinese General Settings */
+.chinese-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.chinese-badge {
+  font-family: var(--font-chinese-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: var(--jade-bright);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.chinese-badge.centered {
+  text-align: center;
+}
+
+.chinese-sec-title {
+  font-family: var(--font-chinese-serif);
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: var(--jade-pearl);
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+}
+
+.chinese-sec-title.centered {
+  text-align: center;
+}
+
+.section-center-head {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+/* Heritage Section */
+.chinese-heritage-section {
+  padding: 8rem 5rem;
+  background-color: var(--jade-deep);
+  border-bottom: 1px solid rgba(0, 168, 107, 0.1);
+}
+
+.heritage-geometric-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.text-side {
+  text-align: left;
+}
+
+.heritage-p-lead {
+  font-family: var(--font-chinese-serif);
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: var(--jade-light);
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.heritage-p-body {
+  font-family: var(--font-chinese-sans);
+  font-size: 0.9rem;
+  line-height: 1.9;
+  font-weight: 300;
+  color: rgba(246, 252, 250, 0.65);
+}
+
+.geometric-border-frame {
+  position: relative;
+  border: 1px solid rgba(0, 168, 107, 0.3);
+  padding: 1.5rem;
+  background: var(--jade-black);
+}
+
+.geometric-border-frame::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+
+.geo-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Menu Grid */
+.chinese-menu-section {
+  padding: 8rem 5rem;
+  background-color: var(--jade-black);
+  border-bottom: 1px solid rgba(0, 168, 107, 0.1);
+}
+
+.menu-geo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.menu-geo-card {
+  background: var(--jade-deep);
+  border: 1px solid rgba(0, 168, 107, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.menu-geo-card:hover {
+  border-color: var(--jade-bright);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 168, 107, 0.05);
+}
+
+.card-img-container {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+}
+
+.menu-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-slow);
+}
+
+.menu-geo-card:hover .menu-img {
+  transform: scale(1.06);
+}
+
+.card-tag {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background-color: rgba(6, 21, 16, 0.85);
+  border: 1px solid var(--jade-bright);
+  padding: 0.4rem 1rem;
+  font-family: var(--font-chinese-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--jade-pearl);
+}
+
+.card-details {
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.dish-title {
+  font-family: var(--font-chinese-serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--jade-pearl);
+  margin-bottom: 1rem;
+}
+
+.dish-desc {
+  font-family: var(--font-chinese-sans);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  font-weight: 300;
+  color: rgba(246, 252, 250, 0.5);
+  margin-bottom: 1.5rem;
+  height: 60px;
+  overflow: hidden;
+}
+
+.dish-divider {
+  width: 30px;
+  height: 1px;
+  background-color: rgba(0, 168, 107, 0.3);
+  margin: 0 auto 1.5rem auto;
+}
+
+.dish-price {
+  font-family: var(--font-chinese-serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--jade-light);
+}
+
+/* Tea Ceremony Section */
+.tea-ceremony-section {
+  position: relative;
+  background-color: var(--jade-deep);
+  border-bottom: 1px solid rgba(0, 168, 107, 0.1);
+  overflow: hidden;
+}
+
+.tea-backdrop-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at left, rgba(0, 168, 107, 0.05) 0%, rgba(4, 9, 7, 0) 80%);
+}
+
+.tea-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  z-index: 2;
+  position: relative;
+}
+
+.tea-image-panel {
+  width: 100%;
+  height: 100%;
+  min-height: 550px;
+}
+
+.tea-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tea-text-panel {
+  padding: 8rem 6rem;
+  align-self: center;
+}
+
+.tea-p {
+  font-family: var(--font-chinese-sans);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  font-weight: 300;
+  color: rgba(246, 252, 250, 0.7);
+  margin-bottom: 3rem;
+}
+
+.tea-varieties {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.tea-item {
+  border-left: 2px solid var(--jade-bright);
+  padding-left: 1.5rem;
+}
+
+.tea-name {
+  font-family: var(--font-chinese-serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--jade-pearl);
+  margin-bottom: 0.5rem;
+}
+
+.tea-desc {
+  font-family: var(--font-chinese-sans);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  font-weight: 300;
+  color: rgba(246, 252, 250, 0.5);
+}
+
+/* Peking Duck Showcase */
+.peking-duck-showcase {
+  padding: 8rem 5rem;
+  background-color: var(--jade-black);
+  border-bottom: 1px solid rgba(0, 168, 107, 0.1);
+}
+
+.duck-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.duck-text {
+  text-align: left;
+}
+
+.duck-p {
+  font-family: var(--font-chinese-sans);
+  font-size: 0.95rem;
+  line-height: 1.9;
+  font-weight: 300;
+  color: rgba(246, 252, 250, 0.7);
+  margin-bottom: 1.5rem;
+}
+
+.duck-ritual {
+  font-family: var(--font-chinese-sans);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  font-weight: 300;
+  color: rgba(246, 252, 250, 0.6);
+  background-color: rgba(13, 38, 30, 0.5);
+  border: 1px solid rgba(0, 168, 107, 0.15);
+  padding: 1.5rem;
+  border-radius: 2px;
+  margin-bottom: 2.5rem;
+}
+
+.duck-ritual strong {
+  color: var(--jade-bright);
+}
+
+.duck-price {
+  font-family: var(--font-chinese-serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--jade-light);
+}
+
+.sharp-frame {
+  position: relative;
+  border: 1px solid rgba(0, 168, 107, 0.3);
+  padding: 1rem;
+}
+
+.duck-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Private Dining */
+.private-dining-section {
+  padding: 8rem 5rem;
+  background-color: var(--jade-deep);
+  border-bottom: 1px solid rgba(0, 168, 107, 0.1);
+}
+
+.salons-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+}
+
+.salon-box {
+  background: var(--jade-black);
+  border: 1px solid rgba(0, 168, 107, 0.15);
+  padding: 4rem 3rem;
+  text-align: center;
+  position: relative;
+}
+
+.salon-title {
+  font-family: var(--font-chinese-serif);
+  font-size: 1.8rem;
+  color: var(--jade-pearl);
+  margin-bottom: 1.5rem;
+}
+
+.salon-desc {
+  font-family: var(--font-chinese-sans);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  font-weight: 300;
+  color: rgba(246, 252, 250, 0.5);
+}
+
+/* Chef Section */
+.chinese-chef-section {
+  padding: 8rem 5rem;
+  background-color: var(--jade-black);
+}
+
+.chef-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.geo-cut-frame {
+  border: 1px solid rgba(0, 168, 107, 0.3);
+  padding: 1.5rem;
+  background-color: var(--jade-deep);
+}
+
+.chef-img-src {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  display: block;
+  filter: contrast(105%);
+}
+
+.chef-text-wrap {
+  text-align: left;
+}
+
+.chef-bio {
+  font-family: var(--font-chinese-sans);
+  font-size: 0.9rem;
+  line-height: 1.9;
+  font-weight: 300;
+  color: rgba(246, 252, 250, 0.65);
+  margin-bottom: 2.5rem;
+}
+
+.chef-quote {
+  font-family: var(--font-chinese-serif);
+  font-size: 1.8rem;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--jade-light);
+  border-left: 2px solid var(--jade-bright);
+  padding-left: 1.5rem;
+}
+
+/* Booking Banner */
+.chinese-booking-banner {
+  padding: 10rem 5rem;
+  background-image: linear-gradient(rgba(4, 9, 7, 0.8), rgba(4, 9, 7, 0.85)), url('https://images.unsplash.com/photo-1543007630-9710e4a00a20?q=80&w=1920');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.booking-glass-panel {
+  width: 100%;
+  max-width: 800px;
+  background: rgba(6, 21, 16, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 168, 107, 0.3);
+  padding: 5rem 4rem;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.booking-title {
+  font-family: var(--font-chinese-serif);
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: var(--jade-pearl);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.booking-text {
+  font-family: var(--font-chinese-sans);
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(246, 252, 250, 0.7);
+  margin-bottom: 3.5rem;
+}
+
+.jade-booking-btn {
+  display: inline-block;
+  background-color: var(--jade-bright);
+  color: var(--jade-black);
+  padding: 1.2rem 3rem;
+  font-family: var(--font-chinese-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--jade-bright);
+  transition: var(--transition-smooth);
+}
+
+.jade-booking-btn:hover {
+  background-color: transparent;
+  color: var(--jade-bright);
+}
+
+/* Responsive Overrides */
+@media (max-width: 991px) {
+  body.cuisine-chinese {
+    padding-left: 0; /* Remove padding on mobile */
+  }
+  .vertical-sidebar-decor {
+    display: none; /* Hide fixed sidebar on smaller screens */
+  }
+  .chinese-header {
+    left: 0;
+    padding: 1.5rem 2rem;
+  }
+  .chinese-nav {
+    display: none;
+  }
+  .chinese-hero {
+    padding: 6rem 2rem 2rem 2rem;
+  }
+  .chinese-hero .hero-title {
+    font-size: 2.4rem;
+  }
+  .chinese-heritage-section,
+  .chinese-menu-section,
+  .tea-ceremony-section,
+  .peking-duck-showcase,
+  .private-dining-section,
+  .chinese-chef-section,
+  .chinese-booking-banner {
+    padding: 5rem 2rem;
+  }
+  .heritage-geometric-grid,
+  .menu-geo-grid,
+  .tea-wrapper,
+  .duck-grid,
+  .salons-grid,
+  .chef-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .geo-img,
+  .duck-img,
+  .chef-img-src {
+    height: 300px;
+  }
+  .tea-image-panel {
+    min-height: 300px;
+  }
+  .tea-text-panel {
+    padding: 3rem 1.5rem;
+  }
+  .booking-glass-panel {
+    padding: 3rem 1.5rem;
+  }
+  .booking-title {
+    font-size: 1.8rem;
+  }
+}

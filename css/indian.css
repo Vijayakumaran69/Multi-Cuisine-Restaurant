@@ -1,0 +1,777 @@
+/* INDIAN CUISINE - ROYAL HERITAGE STYLE */
+
+:root {
+  --royal-ivory: #FDFBF7;
+  --royal-ivory-dark: #F5EFEB;
+  --royal-burgundy: #4A121A;
+  --royal-burgundy-light: #6E202B;
+  --royal-saffron: #E27B35;
+  --royal-gold: #C5A059;
+  
+  --font-royal-serif: 'Cinzel', serif;
+  --font-royal-sans: 'Outfit', sans-serif;
+}
+
+body.cuisine-indian {
+  background-color: var(--royal-ivory);
+  color: var(--royal-burgundy);
+  font-family: var(--font-royal-sans);
+}
+
+/* Indian Navigation Header */
+.indian-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2.5rem 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  background-color: rgba(253, 251, 247, 0.9);
+  border-bottom: 2px double rgba(197, 160, 89, 0.3);
+}
+
+.indian-nav-logo {
+  font-family: var(--font-royal-serif);
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--royal-burgundy);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.indian-nav-logo span {
+  font-family: var(--font-royal-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.35em;
+  color: var(--royal-saffron);
+  margin-top: 0.3rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.indian-nav-links {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.indian-link {
+  font-family: var(--font-royal-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--royal-burgundy);
+  text-decoration: none;
+  position: relative;
+  padding: 0.4rem 0;
+  transition: var(--transition-fast);
+}
+
+.indian-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--royal-saffron);
+  transition: var(--transition-fast);
+  transform: translateX(-50%);
+}
+
+.indian-link:hover::after {
+  width: 80%;
+}
+
+.indian-link:hover {
+  color: var(--royal-saffron);
+}
+
+.indian-cta-nav {
+  font-family: var(--font-royal-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--royal-ivory);
+  background: var(--royal-burgundy);
+  padding: 0.7rem 1.8rem;
+  text-decoration: none;
+  border-radius: 2px;
+  border: 1px solid var(--royal-burgundy);
+  transition: var(--transition-smooth);
+}
+
+.indian-cta-nav:hover {
+  background: transparent;
+  color: var(--royal-burgundy);
+  border-color: var(--royal-burgundy);
+}
+
+/* Indian Hero Section */
+.indian-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(rgba(74, 18, 26, 0.45), rgba(74, 18, 26, 0.75)), url('https://images.unsplash.com/photo-1596176530529-78163a4f7af2?q=80&w=1920');
+  background-size: cover;
+  background-position: center;
+  padding: 8rem 4rem 2rem 4rem;
+}
+
+.hero-arch-frame {
+  width: 100%;
+  max-width: 900px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 400px 400px 0 0;
+  border: 2px solid rgba(197, 160, 89, 0.4);
+  padding: 4rem;
+  text-align: center;
+  background: rgba(74, 18, 26, 0.25);
+  backdrop-filter: blur(2px);
+}
+
+.hero-text-content {
+  max-width: 650px;
+}
+
+.hero-royal-tag {
+  font-family: var(--font-royal-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: var(--royal-saffron);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-family: var(--font-royal-serif);
+  font-size: 3.6rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  color: var(--royal-ivory);
+  margin-bottom: 2rem;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  font-family: var(--font-royal-sans);
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.8;
+  letter-spacing: 0.08em;
+  color: rgba(253, 251, 247, 0.85);
+  margin-bottom: 3rem;
+}
+
+.royal-explore-btn {
+  display: inline-block;
+  font-family: var(--font-royal-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--royal-burgundy);
+  background-color: var(--royal-gold);
+  border: 1px solid var(--royal-gold);
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: var(--transition-smooth);
+}
+
+.royal-explore-btn:hover {
+  background-color: transparent;
+  color: var(--royal-gold);
+}
+
+/* Rajput Arch Transition Divider */
+.rajput-arch-divider {
+  width: 100%;
+  height: 50px;
+  background-color: var(--royal-ivory-dark);
+  clip-path: polygon(0% 100%, 10% 80%, 20% 100%, 30% 80%, 40% 100%, 50% 80%, 60% 100%, 70% 80%, 80% 100%, 90% 80%, 100% 100%, 100% 0%, 0% 0%);
+}
+
+/* Containers & Section Headers */
+.royal-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.royal-mini-tag {
+  font-family: var(--font-royal-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: var(--royal-saffron);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.royal-mini-tag.text-center {
+  text-align: center;
+}
+
+.indian-title {
+  font-family: var(--font-royal-serif);
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--royal-burgundy);
+  text-transform: uppercase;
+}
+
+.indian-title.text-center {
+  text-align: center;
+}
+
+.gold-mandala-decor {
+  width: 40px;
+  height: 40px;
+  margin: 1rem 0 3rem 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gold-mandala-decor.centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gold-mandala-decor::before {
+  content: '\2741'; /* Rotating flower symbol simulating mandala */
+  font-size: 1.4rem;
+  color: var(--royal-gold);
+  animation: slowSpin 25s linear infinite;
+}
+
+.gold-mandala-decor::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 1px;
+  background-color: rgba(197, 160, 89, 0.4);
+  z-index: -1;
+}
+
+@keyframes slowSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Heritage Story Section */
+.indian-heritage-story {
+  padding: 8rem 4rem;
+  background-color: var(--royal-ivory);
+}
+
+.heritage-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.arch-frame-img {
+  width: 100%;
+  max-width: 450px;
+  height: 500px;
+  border-radius: 200px 200px 0 0;
+  overflow: hidden;
+  border: 2px solid var(--royal-gold);
+  padding: 1rem;
+  background-color: var(--royal-ivory-dark);
+}
+
+.royal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 190px 190px 0 0;
+  filter: sepia(10%);
+}
+
+.heritage-text-block {
+  text-align: left;
+}
+
+.royal-p-lead {
+  font-family: var(--font-royal-serif);
+  font-size: 1.5rem;
+  line-height: 1.6;
+  font-weight: 600;
+  color: var(--royal-burgundy-light);
+  margin-bottom: 2rem;
+}
+
+.royal-p-body {
+  font-family: var(--font-royal-sans);
+  font-size: 0.95rem;
+  line-height: 1.9;
+  font-weight: 300;
+  color: rgba(74, 18, 26, 0.85);
+}
+
+/* Regional Flavors Section */
+.indian-regional-flavors {
+  padding: 8rem 4rem;
+  background-color: var(--royal-ivory-dark);
+  border-top: 1px solid rgba(197, 160, 89, 0.15);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+}
+
+.regional-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.regional-card {
+  background-color: var(--royal-ivory);
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(74, 18, 26, 0.04);
+  transition: var(--transition-smooth);
+}
+
+.regional-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(74, 18, 26, 0.08);
+  border-color: var(--royal-saffron);
+}
+
+.card-arch-top {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 0 0 100px 100px; /* Inverted Arch for dish presentation! */
+  border-bottom: 2px solid var(--royal-gold);
+}
+
+.regional-img-card {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-slow);
+}
+
+.regional-card:hover .regional-img-card {
+  transform: scale(1.06);
+}
+
+.card-body {
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.card-region {
+  font-family: var(--font-royal-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--royal-saffron);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.card-dish-name {
+  font-family: var(--font-royal-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--royal-burgundy);
+  margin-bottom: 1rem;
+}
+
+.card-dish-desc {
+  font-family: var(--font-royal-sans);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  font-weight: 300;
+  color: rgba(74, 18, 26, 0.7);
+  margin-bottom: 1.5rem;
+  height: 60px;
+  overflow: hidden;
+}
+
+.card-dish-price {
+  font-family: var(--font-royal-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--royal-burgundy-light);
+}
+
+/* Spice Journey Section */
+.spice-journey-section {
+  padding: 8rem 4rem;
+  background-color: var(--royal-ivory);
+}
+
+.spice-intro {
+  max-width: 600px;
+  margin: -1.5rem auto 4rem auto;
+  font-family: var(--font-royal-sans);
+  font-size: 0.9rem;
+  color: rgba(74, 18, 26, 0.75);
+  line-height: 1.8;
+}
+
+.spice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+}
+
+.spice-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.spice-circle-wrap {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 1px dashed var(--royal-gold);
+  padding: 8px;
+  margin-bottom: 1.5rem;
+  transition: var(--transition-smooth);
+}
+
+.spice-item:hover .spice-circle-wrap {
+  transform: rotate(45deg) scale(1.05);
+  border-color: var(--royal-saffron);
+}
+
+.spice-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.spice-name {
+  font-family: var(--font-royal-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--royal-burgundy);
+  margin-bottom: 0.75rem;
+}
+
+.spice-text {
+  font-family: var(--font-royal-sans);
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(74, 18, 26, 0.7);
+  max-width: 280px;
+}
+
+/* Royal Thali Section */
+.royal-thali-section {
+  position: relative;
+  background-color: var(--royal-burgundy);
+  color: var(--royal-ivory);
+  padding: 0;
+  display: flex;
+  overflow: hidden;
+}
+
+.thali-bg-tint {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at right, rgba(226, 123, 53, 0.1) 0%, rgba(74, 18, 26, 0.6) 80%);
+}
+
+.thali-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  width: 100%;
+  z-index: 2;
+}
+
+.thali-text-side {
+  padding: 8rem 6rem;
+  align-self: center;
+}
+
+.thali-text-side .indian-title {
+  color: var(--royal-ivory);
+}
+
+.thali-p {
+  font-family: var(--font-royal-sans);
+  font-size: 0.95rem;
+  line-height: 1.9;
+  font-weight: 300;
+  color: rgba(253, 251, 247, 0.8);
+  margin-bottom: 2rem;
+}
+
+.thali-bullets {
+  list-style: none;
+  margin-bottom: 3rem;
+}
+
+.thali-bullets li {
+  font-family: var(--font-royal-sans);
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--royal-gold);
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.thali-bullets li::before {
+  content: '\2726'; /* Diamond bullet symbol */
+  position: absolute;
+  left: 0;
+  color: var(--royal-saffron);
+  font-size: 0.7rem;
+}
+
+.thali-price {
+  font-family: var(--font-royal-serif);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--royal-ivory);
+}
+
+.thali-image-side {
+  width: 100%;
+  height: 100%;
+  min-height: 600px;
+  position: relative;
+}
+
+.thali-img-frame {
+  width: 100%;
+  height: 100%;
+}
+
+.thali-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Festival Dining Section */
+.festival-dining-section {
+  padding: 8rem 4rem;
+  background-color: var(--royal-ivory-dark);
+}
+
+.fest-grid {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.fest-text-box {
+  max-width: 800px;
+  background: var(--royal-ivory);
+  border: 1px dashed var(--royal-gold);
+  border-radius: 4px;
+  padding: 4rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+}
+
+.fest-title {
+  font-family: var(--font-royal-serif);
+  font-size: 1.8rem;
+  color: var(--royal-burgundy);
+  margin-bottom: 1.5rem;
+}
+
+.fest-desc {
+  font-family: var(--font-royal-sans);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  font-weight: 300;
+  color: rgba(74, 18, 26, 0.8);
+}
+
+/* Chef Legacy Section */
+.indian-chef-section {
+  padding: 8rem 4rem;
+  background-color: var(--royal-ivory);
+  border-top: 1px solid rgba(197, 160, 89, 0.15);
+}
+
+.chef-legacy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.chef-arch-frame {
+  width: 100%;
+  max-width: 450px;
+  height: 500px;
+  border-radius: 200px 200px 0 0;
+  overflow: hidden;
+  border: 2px solid var(--royal-saffron);
+  padding: 1rem;
+  background-color: var(--royal-ivory-dark);
+}
+
+.chef-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 190px 190px 0 0;
+  filter: grayscale(10%) sepia(20%);
+}
+
+.chef-legacy-text-box {
+  text-align: left;
+}
+
+.royal-quote {
+  font-family: var(--font-royal-serif);
+  font-size: 1.7rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--royal-burgundy-light);
+  border-left: 3px solid var(--royal-saffron);
+  padding-left: 1.5rem;
+  margin-top: 2rem;
+  font-style: italic;
+}
+
+/* Booking Banner */
+.indian-booking-banner {
+  padding: 10rem 4rem;
+  background-image: linear-gradient(rgba(74, 18, 26, 0.8), rgba(74, 18, 26, 0.8)), url('https://images.unsplash.com/photo-1596176530529-78163a4f7af2?q=80&w=1920');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.booking-arch-window {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 350px 350px 0 0;
+  border: 2px solid var(--royal-gold);
+  padding: 6rem 4rem;
+  text-align: center;
+  background: rgba(74, 18, 26, 0.4);
+}
+
+.booking-banner-title {
+  font-family: var(--font-royal-serif);
+  font-size: 2.6rem;
+  color: var(--royal-ivory);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.booking-banner-text {
+  font-family: var(--font-royal-sans);
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(253, 251, 247, 0.8);
+  margin-bottom: 3.5rem;
+}
+
+.royal-booking-btn {
+  display: inline-block;
+  background-color: var(--royal-saffron);
+  color: var(--royal-ivory);
+  padding: 1.2rem 3rem;
+  font-family: var(--font-royal-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.royal-booking-btn:hover {
+  background-color: transparent;
+  border: 1px solid var(--royal-ivory);
+  color: var(--royal-ivory);
+}
+
+/* Responsive Overrides */
+@media (max-width: 991px) {
+  .indian-header {
+    padding: 1.5rem 2rem;
+  }
+  .indian-nav-links {
+    display: none;
+  }
+  .indian-hero {
+    padding: 6rem 2rem 2rem 2rem;
+  }
+  .hero-arch-frame {
+    border-radius: 200px 200px 0 0;
+    padding: 2.5rem 1.5rem;
+  }
+  .hero-title {
+    font-size: 2.3rem;
+  }
+  .indian-heritage-story,
+  .indian-regional-flavors,
+  .spice-journey-section,
+  .festival-dining-section,
+  .indian-chef-section,
+  .indian-booking-banner {
+    padding: 5rem 2rem;
+  }
+  .heritage-grid,
+  .regional-grid,
+  .spice-grid,
+  .chef-legacy-grid,
+  .thali-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .arch-frame-img,
+  .chef-arch-frame {
+    height: 350px;
+    margin: 0 auto;
+  }
+  .thali-text-side {
+    padding: 3rem 1.5rem;
+  }
+  .thali-image-side {
+    min-height: 300px;
+  }
+  .booking-arch-window {
+    border-radius: 200px 200px 0 0;
+    padding: 4rem 1.5rem;
+  }
+  .booking-banner-title {
+    font-size: 1.8rem;
+  }
+}

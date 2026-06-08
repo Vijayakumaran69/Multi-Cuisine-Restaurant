@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Epicurean Registry | Online Ordering | The Culinary Atlas</title>
+  <meta name="description" content="Savor the taste of our five culinary worlds in the comfort of your home. Premium luxury food ordering experience with direct delivery.">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/order.css">
+  <!-- Load Supabase, EmailJS, and Config files before page scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="js/config.js"></script>
+</head>
+<body class="cuisine-home">
+
+  <!-- Luxury Preloader -->
+  <div class="luxury-preloader">
+    <div class="preloader-circle-trace"></div>
+    <div class="preloader-logo">THE CULINARY ATLAS</div>
+  </div>
+
+  <!-- Global Header Navigation -->
+  <header class="global-header">
+    <a href="index.html" class="global-logo" id="header-logo">
+      THE CULINARY ATLAS
+      <span>One Destination. Five Worlds.</span>
+    </a>
+    <nav class="global-nav-links">
+      <a href="about.html" class="global-nav-link">About</a>
+      <a href="index.html#destinations" class="global-nav-link">Cuisines</a>
+      <a href="contact.html" class="global-nav-link">Contact</a>
+      <a href="reservations.html" class="global-nav-cta">Reserve Table</a>
+    </nav>
+    <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Page Transition Overlay -->
+  <div class="page-transition-overlay">
+    <div class="transition-logo">THE CULINARY ATLAS</div>
+  </div>
+
+  <!-- Ordering Platform Container -->
+  <main class="ordering-container">
+    
+    <!-- Hero Header block -->
+    <div class="ordering-hero">
+      <span class="ordering-tagline">THE EPICUREAN AT HOME</span>
+      <h1 class="ordering-title">Order Luxury Gastronomy</h1>
+      <p class="ordering-desc">Embark on a curated fine-dining journey from our kitchens to your dining table. Experience five distinct worlds of taste, freshly prepared and delivered with utmost devotion.</p>
+    </div>
+
+    <!-- Multi-Step Order Interface -->
+    <div id="ordering-wizard" class="wizard-wrapper">
+      
+      <!-- STEP 1: Menu & Cart Selection -->
+      <div id="step-menu" class="wizard-step active">
+        <div class="menu-layout-wrapper">
+          
+          <!-- Sticky Left Sidebar Navigation -->
+          <aside class="cuisine-sidebar">
+            <h3 class="sidebar-title">Categories</h3>
+            <div class="sidebar-nav">
+              <a href="#sec-italian" class="sidebar-tab active" data-target="italian">Italian Cuisine</a>
+              <a href="#sec-indian" class="sidebar-tab" data-target="indian">Indian Cuisine</a>
+              <a href="#sec-chinese" class="sidebar-tab" data-target="chinese">Chinese Cuisine</a>
+              <a href="#sec-japanese" class="sidebar-tab" data-target="japanese">Japanese Cuisine</a>
+              <a href="#sec-mexican" class="sidebar-tab" data-target="mexican">Mexican Cuisine</a>
+            </div>
+          </aside>
+
+          <!-- Horizontal mobile pill switcher -->
+          <div class="mobile-tabs-container">
+            <div class="mobile-tabs-scroll">
+              <a href="#sec-italian" class="mobile-tab-pill active" data-target="italian">Italian</a>
+              <a href="#sec-indian" class="mobile-tab-pill" data-target="indian">Indian</a>
+              <a href="#sec-chinese" class="mobile-tab-pill" data-target="chinese">Chinese</a>
+              <a href="#sec-japanese" class="mobile-tab-pill" data-target="japanese">Japanese</a>
+              <a href="#sec-mexican" class="mobile-tab-pill" data-target="mexican">Mexican</a>
+            </div>
+          </div>
+
+          <!-- Main Menu List -->
+          <div class="menu-catalog-list">
+            
+            <!-- ITALIAN CUISINE -->
+            <section id="sec-italian" class="menu-cuisine-section">
+              <div class="menu-section-header">
+                <span class="cuisine-gold-label">IL CORTILE</span>
+                <h2 class="cuisine-section-name">Italian Cuisine</h2>
+              </div>
+              <div class="dishes-grid">
+                <!-- Dish 1 -->
+                <div class="dish-card" data-id="it-tagliolini">
+                  <div class="dish-img-holder">
+                    <img src="https://images.unsplash.com/photo-1645112411341-6c4fd023714a?q=80&w=400" alt="Truffle Tagliolini" class="dish-img">
+                  </div>
+                  <div class="dish-details">
+                    <h3 class="dish-name">Truffle Tagliolini</h3>
+                    <p class="dish-desc">Fresh handmade egg pasta, shaved black winter truffles, aged Parmigiano-Reggiano, butter emulsion.</p>
+                    <div class="dish-footer">
+                      <span class="dish-price">₹1,250</span>
+                      <div class="dish-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <div class="qty-control">
+                          <button class="qty-btn dec">&minus;</button>
+                          <span class="qty-val">1</span>
+                          <button class="qty-btn inc">&plus;</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Dish 2 -->
+                <div class="dish-card" data-id="it-margherita">
+                  <div class="dish-img-holder">
+                    <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?q=80&w=400" alt="Margherita D.O.C." class="dish-img">
+                  </div>
+                  <div class="dish-details">
+                    <h3 class="dish-name">Margherita D.O.C.</h3>
+                    <p class="dish-desc">San Marzano tomatoes, fresh buffalo mozzarella, fragrant basil, cold-pressed extra virgin olive oil.</p>
+                    <div class="dish-footer">
+                      <span class="dish-price">₹850</span>
+                      <div class="dish-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <div class="qty-control">
+                          <button class="qty-btn dec">&minus;</button>
+                          <span class="qty-val">1</span>
+                          <button class="qty-btn inc">&plus;</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Dish 3 -->
+                <div class="dish-card" data-id="it-ribeye">
+                  <div class="dish-img-holder">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=400" alt="Fiorentina Dry-Aged Ribeye" class="dish-img">
+                  </div>
+                  <div class="dish-details">
+                    <h3 class="dish-name">Fiorentina Ribeye</h3>
+                    <p class="dish-desc">Dry-aged Tuscan ribeye steak, aromatic sea salt, fresh rosemary infusion, charcoal flame seared.</p>
+                    <div class="dish-footer">
+                      <span class="dish-price">₹2,400</span>
+                      <div class="dish-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <div class="qty-control">
+                          <button class="qty-btn dec">&minus;</button>
+                          <span class="qty-val">1</span>
+                          <button class="qty-btn inc">&plus;</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- INDIAN CUISINE -->
+            <section id="sec-indian" class="menu-cuisine-section">
+              <div class="menu-section-header">
+                <span class="cuisine-gold-label">MAHARAJA'S DIWAN</span>
+                <h2 class="cuisine-section-name">Indian Cuisine</h2>
+              </div>
+              <div class="dishes-grid">
+                <!-- Dish 1 -->
+                <div class="dish-card" data-id="in-biryani">
+                  <div class="dish-img-holder">
+                    <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=400" alt="Royal Awadhi Biryani" class="dish-img">
+                  </div>
+                  <div class="dish-details">
+                    <h3 class="dish-name">Royal Awadhi Biryani</h3>
+                    <p class="dish-desc">Slow-cooked fragrant Basmati rice, tender heritage-spiced mutton, saffron mist, rose water infusion.</p>
+                    <div class="dish-footer">
+                      <span class="dish-price">₹950</span>
+                      <div class="dish-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <div class="qty-control">
+                          <button class="qty-btn dec">&minus;</button>
+                          <span class="qty-val">1</span>
+                          <button class="qty-btn inc">&plus;</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Dish 2 -->
+                <div class="dish-card" data-id="in-butterchicken">
+                  <div class="dish-img-holder">
+                    <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?q=80&w=400" alt="Signature Butter Chicken" class="dish-img">
+                  </div>
+                  <div class="dish-details">
+                    <h3 class="dish-name">Signature Butter Chicken</h3>
+                    <p class="dish-desc">Charcoal-smoked chicken thigh, rich creamy tomato-cashew gravy, churned white butter, fenugreek dust.</p>
+                    <div class="dish-footer">
+                      <span class="dish-price">₹850</span>
+                      <div class="dish-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <div class="qty-control">
+                          <button class="qty-btn dec">&minus;</button>
+                          <span class="qty-val">1</span>
+                          <button class="qty-btn inc">&plus;</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Dish 3 -->
+                <div class="dish-card" data-id="in-paneer">
+                  <div class="dish-img-holder">
+                    <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?q=80&w=400" alt="Nazaqati Paneer Tikka" class="dish-img">
+                  </div>
+                  <div class="dish-details">
+                    <h3 class="dish-name">Nazaqati Paneer Tikka</h3>
+                    <p class="dish-desc">Handcrafted paneer blocks stuffed with dynamic mint-pine nut filling, marinated in royal saffron tandoori marinade.</p>
+                    <div class="dish-footer">
+                      <span class="dish-price">₹750</span>
+                      <div class="dish-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <div class="qty-control">
+                          <button class="qty-btn dec">&minus;</button>
+                          <span class="qty-val">1</span>
+                          <button class="qty-btn inc">&plus;</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- CHINESE CUISINE -->
+            <section id="sec-chinese" class="menu-cuisine-section">
+              <div class="menu-section-header">
+                <span class="cuisine-gold-label">HOUSE OF JADE</span>
+                <h2 class="cuisine-section-name">Chinese Cuisine</h2>
+              </div>
+              <div class="dishes-grid">
+                <!-- Dish 1 -->
+                <div class="dish-card" data-id="zh-duck">
+                  <div class="dish-img-holder">
+                    <img src="https://images.unsplash.com/photo-1525755662778-989d0524087e?q=80&w=400" alt="Imperial Peking Duck" class="dish-img">
+                  </div>
+                  <div class="dish-details">
+                    <h3 class="dish-name">Imperial Peking Duck</h3>
+                    <p class="dish-desc">24-hour slow roasted crispy duck skin, hand-rolled pancakes, sweet bean glaze, sliced cucumber and scallions.</p>
+                    <div class="dish-footer">
+                      <span class="dish-price">₹1,800</span>
+                      <div class="dish-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <div class="qty-control">
+                          <button class="qty-btn dec">&minus;</button>
+                          <span class="qty-val">1</span>
+                          <button class="qty-btn inc">&plus;</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Dish 2 -->
+                <div class="dish-card" data-id="zh-dumplings">
+                  <div class="dish-img-holder">
+                    <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?q=80&w=400" alt="Jade Lobster Dumplings" class="dish-img">
+                  </div>
+                  <div class="dish-details">
+                    <h3 class="dish-name">Jade Dumplings</h3>
+                    <p class="dish-desc">Steamed lobster and wild shrimp dumplings wrapped in naturally tinted spinach wheat wrapper, gold dust flake.</p>
+                    <div class="dish-footer">
+                      <span class="dish-price">₹900</span>
+                      <div class="dish-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <div class="qty-control">
+                          <button class="qty-btn dec">&minus;</button>
+                          <span class="qty-val">1</span>
+                          <button class="qty-btn inc">&plus;</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Dish 3 -->
+                <div class="dish-card" data-id="zh-seabass">
+                  <div class="dish-img-holder">
+                    <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?q=80&w=400" alt="Szechuan Chili Sea Bass" class="dish-img">
+                  </div>
+                  <div class="dish-details">
+                    <h3 class="dish-name">Szechuan Chili Sea Bass</h3>
+                    <p class="dish-desc">Steamed Chilean sea bass fillet, tingling Szechuan peppercorn-chili oil, light soy-ginger emulsion, fresh cilantro.</p>
+                    <div class="dish-footer">
+                      <span class="dish-price">₹1,600</span>
+                      <div class="dish-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <div class="qty-control">
+                          <button class="qty-btn dec">&minus;</button>
+                          <span class="qty-val">1</span>
+                          <button class="qty-btn inc">&plus;</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- JAPANESE CUISINE -->
+            <section id="sec-japanese" class="menu-cuisine-section">
+              <div class="menu-section-header">
+                <span class="cuisine-gold-label">KURO HANA</span>
+                <h2 class="cuisine-section-name">Japanese Cuisine</h2>
+              </div>
+              <div class="dishes-grid">
+                <!-- Dish 1 -->
+                <div class="dish-card" data-id="ja-nigiri">
+                  <div class="dish-img-holder">
+                    <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=400" alt="Premium Omakase Nigiri Selection" class="dish-img">
+                  </div>
+                  <div class="dish-details">
+                    <h3 class="dish-name">Omakase Nigiri</h3>
+                    <p class="dish-desc">Chef's selection of 5 fresh seasonal nigiri pieces flown in from Tokyo’s Toyosu market, brushed with Nikiri soy glaze.</p>
+                    <div class="dish-footer">
+                      <span class="dish-price">₹2,200</span>
+                      <div class="dish-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <div class="qty-control">
+                          <button class="qty-btn dec">&minus;</button>
+                          <span class="qty-val">1</span>
+                          <button class="qty-btn inc">&plus;</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Dish 2 -->
+                <div class="dish-card" data-id="ja-wagyu">
+                  <div class="dish-img-holder">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=400" alt="A5 Miyazaki Wagyu Beef Tataki" class="dish-img">
+                  </div>
+                  <div class="dish-details">
+                    <h3 class="dish-name">A5 Wagyu Tataki</h3>
+                    <p class="dish-desc">Lightly seared A5 Miyazaki beef slices, citrus ponzu reduction, fried garlic chips, micro-shiso greens.</p>
+                    <div class="dish-footer">
+                      <span class="dish-price">₹2,600</span>
+                      <div class="dish-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <div class="qty-control">
+                          <button class="qty-btn dec">&minus;</button>
+                          <span class="qty-val">1</span>
+                          <button class="qty-btn inc">&plus;</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Dish 3 -->
+                <div class="dish-card" data-id="ja-ramen">
+                  <div class="dish-img-holder">
+                    <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=400" alt="Kuro Hana Tonkotsu Ramen" class="dish-img">
+                  </div>
+                  <div class="dish-details">
+                    <h3 class="dish-name">Kuro Hana Ramen</h3>
+                    <p class="dish-desc">Slow-simmered rich pork bone broth, hand-cut alkaline noodles, roasted black garlic oil, seared chashu belly.</p>
+                    <div class="dish-footer">
+                      <span class="dish-price">₹1,100</span>
+                      <div class="dish-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <div class="qty-control">
+                          <button class="qty-btn dec">&minus;</button>
+                          <span class="qty-val">1</span>
+                          <button class="qty-btn inc">&plus;</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- MEXICAN CUISINE -->
+            <section id="sec-mexican" class="menu-cuisine-section">
+              <div class="menu-section-header">
+                <span class="cuisine-gold-label">EL AZTECA</span>
+                <h2 class="cuisine-section-name">Mexican Cuisine</h2>
+              </div>
+              <div class="dishes-grid">
+                <!-- Dish 1 -->
+                <div class="dish-card" data-id="mx-lobster">
+                  <div class="dish-img-holder">
+                    <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=400" alt="Tulum Butter Lobster Tacos" class="dish-img">
+                  </div>
+                  <div class="dish-details">
+                    <h3 class="dish-name">Tulum Lobster Tacos</h3>
+                    <p class="dish-desc">Butter-poached Maine lobster tails, hand-pressed heirloom blue corn tortillas, chipotle adobo crema, fresh avocado.</p>
+                    <div class="dish-footer">
+                      <span class="dish-price">₹1,200</span>
+                      <div class="dish-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <div class="qty-control">
+                          <button class="qty-btn dec">&minus;</button>
+                          <span class="qty-val">1</span>
+                          <button class="qty-btn inc">&plus;</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Dish 2 -->
+                <div class="dish-card" data-id="mx-barbacoa">
+                  <div class="dish-img-holder">
+                    <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?q=80&w=400" alt="Adobo Braised Beef Barbacoa" class="dish-img">
+                  </div>
+                  <div class="dish-details">
+                    <h3 class="dish-name">Ancho Chili Barbacoa</h3>
+                    <p class="dish-desc">Slow-braised beef brisket in ancho-guajillo pepper adobo sauce, pickled sweet onions, fresh farm cilantro.</p>
+                    <div class="dish-footer">
+                      <span class="dish-price">₹950</span>
+                      <div class="dish-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <div class="qty-control">
+                          <button class="qty-btn dec">&minus;</button>
+                          <span class="qty-val">1</span>
+                          <button class="qty-btn inc">&plus;</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Dish 3 -->
+                <div class="dish-card" data-id="mx-guacamole">
+                  <div class="dish-img-holder">
+                    <img src="https://images.unsplash.com/photo-1541832676-9b763b0239ab?q=80&w=400" alt="Smoked Mezcal Tableside Guacamole" class="dish-img">
+                  </div>
+                  <div class="dish-details">
+                    <h3 class="dish-name">Smoked Mezcal Guacamole</h3>
+                    <p class="dish-desc">Freshly mashed Hass avocados, mist of smoked Mezcal mist, cotija cheese crumbles, served with blue totopos.</p>
+                    <div class="dish-footer">
+                      <span class="dish-price">₹650</span>
+                      <div class="dish-actions">
+                        <button class="add-to-cart-btn">Add to Cart</button>
+                        <div class="qty-control">
+                          <button class="qty-btn dec">&minus;</button>
+                          <span class="qty-val">1</span>
+                          <button class="qty-btn inc">&plus;</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+          </div>
+
+          <!-- Sticky Right Sidebar Desktop Cart -->
+          <aside class="desktop-cart-panel glass-panel">
+            <h3 class="cart-title">Your Order Registry</h3>
+            <div class="cart-items-container">
+              <!-- Dynamically populated -->
+              <div class="empty-cart-message">
+                <span class="empty-cart-icon">🛒</span>
+                <p>Select exceptional dishes from our world catalog to begin order.</p>
+              </div>
+            </div>
+            <div class="cart-billing-summary">
+              <div class="billing-line">
+                <span>Subtotal</span>
+                <span class="bill-val subtotal">₹0</span>
+              </div>
+              <div class="billing-line">
+                <span>Delivery Charge</span>
+                <span class="bill-val delivery">₹0</span>
+              </div>
+              <div class="billing-line grand-total-line">
+                <span>Grand Total</span>
+                <span class="bill-val grand-total">₹0</span>
+              </div>
+              <button class="checkout-proceed-btn" disabled>Proceed to Checkout</button>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+
+      <!-- STEP 2: Address & Details Form (SPA View) -->
+      <div id="step-checkout-form" class="wizard-step">
+        <div class="checkout-layout-wrapper">
+          <div class="checkout-form-panel glass-panel">
+            <h2 class="checkout-section-title">Delivery Details</h2>
+            
+            <form id="address-form" class="checkout-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="c-name">Full Name *</label>
+                  <input type="text" id="c-name" required placeholder="e.g. Lord Alexander Croft">
+                </div>
+                <div class="form-group">
+                  <label for="c-phone">Mobile Number *</label>
+                  <input type="tel" id="c-phone" pattern="[0-9]{10}" required placeholder="e.g. 9876543210">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="c-email">Email Address (Optional)</label>
+                  <input type="email" id="c-email" placeholder="e.g. alexander@croftmanor.com">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="c-address">Complete Delivery Address *</label>
+                <textarea id="c-address" required placeholder="e.g. Flat 4B, Belgrave Manor, 15 Belgrave Square"></textarea>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="c-city">City *</label>
+                  <input type="text" id="c-city" required placeholder="e.g. London">
+                </div>
+                <div class="form-group">
+                  <label for="c-state">State *</label>
+                  <input type="text" id="c-state" required placeholder="e.g. England">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="c-zip">Postal Code / ZIP *</label>
+                  <input type="text" id="c-zip" required placeholder="e.g. SW1X 8PS">
+                </div>
+                <div class="form-group">
+                  <label for="c-landmark">Landmark *</label>
+                  <input type="text" id="c-landmark" required placeholder="e.g. Opp. Turkish Embassy">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="c-notes">Additional Instructions for Concierge</label>
+                <textarea id="c-notes" placeholder="e.g. Ring the bell twice. Please leave at the foyer desk if not responsive."></textarea>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="wizard-back-btn" data-back="menu">Back to Menu</button>
+                <button type="submit" class="wizard-next-btn">Review Order Details</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Checkout Sticky Summary Panel -->
+          <div class="checkout-summary-panel glass-panel">
+            <h3 class="summary-title">Summary Review</h3>
+            <div class="summary-items-list">
+              <!-- Dynamically populated -->
+            </div>
+            <div class="summary-total-block">
+              <div class="billing-line">
+                <span>Items Subtotal</span>
+                <span class="subtotal-val">₹0</span>
+              </div>
+              <div class="billing-line">
+                <span>Luxury Delivery Fee</span>
+                <span class="delivery-val">₹150</span>
+              </div>
+              <div class="billing-line grand-total-line">
+                <span>Grand Total</span>
+                <span class="grand-val">₹0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: Order Review step (SPA View) -->
+      <div id="step-order-review" class="wizard-step">
+        <div class="review-layout-wrapper">
+          <div class="review-panel glass-panel">
+            <h2 class="review-section-title">Final Registry Review</h2>
+            
+            <div class="review-cards-grid">
+              
+              <!-- Cart items confirmation card -->
+              <div class="review-card">
+                <div class="card-header-actions">
+                  <h3 class="card-heading">Selected Delicacies</h3>
+                  <button type="button" class="edit-step-btn" data-edit="menu">Edit Order</button>
+                </div>
+                <div class="review-items-table">
+                  <!-- Dynamically populated -->
+                </div>
+              </div>
+
+              <!-- Address confirmation card -->
+              <div class="review-card">
+                <div class="card-header-actions">
+                  <h3 class="card-heading">Delivery Destination</h3>
+                  <button type="button" class="edit-step-btn" data-edit="form">Edit Details</button>
+                </div>
+                <div class="review-details-block">
+                  <!-- Dynamically populated -->
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Price Breakdown and Place CTA -->
+            <div class="review-bottom-block">
+              <div class="review-pricing-table">
+                <div class="review-price-line">
+                  <span>Subtotal</span>
+                  <span class="review-subtotal-val">₹0</span>
+                </div>
+                <div class="review-price-line">
+                  <span>Delivery Charge</span>
+                  <span class="review-delivery-val">₹150</span>
+                </div>
+                <div class="review-price-line grand">
+                  <span>Grand Total</span>
+                  <span class="review-grand-val">₹0</span>
+                </div>
+              </div>
+
+              <div class="review-actions">
+                <button type="button" class="wizard-back-btn" data-back="form">Back to Details</button>
+                <button type="button" class="place-order-whatsapp-btn">Place Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4: Success Confirmation Page -->
+      <div id="step-success" class="wizard-step">
+        <div class="success-layout-wrapper">
+          <div class="success-panel glass-panel text-center">
+            <div class="success-badge-glowing">&#10003;</div>
+            <h2 class="success-main-title">Order Confirmed</h2>
+            <div class="success-status-badge">Pending Confirmation</div>
+            <p class="success-message">Thank you for ordering with The Culinary Atlas. Your order has been received and is awaiting confirmation.</p>
+            
+            <div class="success-order-card">
+              <div class="order-id-block">
+                <span>Order Reference ID</span>
+                <div class="order-id-display">
+                  <strong id="success-id">ATLAS-1001</strong>
+                  <button class="copy-id-btn">Copy ID</button>
+                </div>
+              </div>
+              
+              <div class="success-details-split">
+                <div class="details-col text-left">
+                  <h4>Delivery Address</h4>
+                  <p id="success-address"></p>
+                </div>
+                <div class="details-col text-right">
+                  <h4>Order Summary</h4>
+                  <div id="success-items-list" class="success-items-summary"></div>
+                  <div class="success-grand-line">
+                    <span>Grand Total:</span>
+                    <strong id="success-grand">₹0</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="success-actions">
+              <a href="index.html" class="return-home-btn">Return to Atlas</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Mobile Floating Cart Status Bar (Only visible when items are added) -->
+  <div class="mobile-cart-bar">
+    <div class="mobile-cart-info">
+      <span class="mobile-cart-count">3 Items</span>
+      <span class="mobile-cart-divider">|</span>
+      <span class="mobile-cart-total">₹2,450</span>
+    </div>
+    <button class="mobile-view-cart-btn">View Cart Drawer</button>
+  </div>
+
+  <!-- Mobile Cart Drawer Overlay -->
+  <div class="cart-drawer-overlay">
+    <div class="mobile-cart-drawer glass-panel">
+      <div class="drawer-header-block">
+        <h3 class="drawer-heading">Your Cart Summary</h3>
+        <button class="close-drawer-btn" aria-label="Close Cart Drawer">&times;</button>
+      </div>
+      <div class="drawer-items-list">
+        <!-- Dynamically populated -->
+      </div>
+      <div class="drawer-billing-summary">
+        <div class="billing-line">
+          <span>Subtotal</span>
+          <span class="bill-val subtotal">₹0</span>
+        </div>
+        <div class="billing-line">
+          <span>Delivery Charge</span>
+          <span class="bill-val delivery">₹0</span>
+        </div>
+        <div class="billing-line grand-total-line">
+          <span>Grand Total</span>
+          <span class="bill-val grand-total">₹0</span>
+        </div>
+        <button class="checkout-proceed-btn" disabled>Proceed to Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Footer -->
+  <footer class="global-footer">
+    <div class="footer-grid">
+      <div class="footer-col brand-col">
+        <span class="footer-logo">THE CULINARY ATLAS</span>
+        <p class="footer-tagline">"One Destination. Five Culinary Worlds."</p>
+        <p class="footer-desc">An elite fine-dining collective combining authentic gastronomic histories from Italy, India, China, Japan, and Mexico.</p>
+      </div>
+      <div class="footer-col links-col">
+        <h4 class="footer-heading">Navigating The Worlds</h4>
+        <ul class="footer-links-list">
+          <li><a href="italian.html">The Tuscan Wine Cellar</a></li>
+          <li><a href="indian.html">The Royal Kitchens</a></li>
+          <li><a href="chinese.html">Modern Shanghai Fine Dining</a></li>
+          <li><a href="japanese.html">The Zen Omakase Counter</a></li>
+          <li><a href="mexican.html">Tulum Sunset Beach Lounge</a></li>
+        </ul>
+      </div>
+      <div class="footer-col contact-col">
+        <h4 class="footer-heading">Atlas Registry</h4>
+        <p>15 Belgrave Square, London, SW1X 8PS</p>
+        <p>Email: concierge@culinaryatlas.com</p>
+        <p>Reservations: +44 20 7235 8000</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 The Culinary Atlas. Crafted with pure devotion. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Checkout loading state overlay -->
+  <div class="checkout-loading-overlay" id="checkout-loader">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Securing Gastronomy Order...</div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/order.js"></script>
+</body>
+</html>
